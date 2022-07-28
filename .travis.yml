@@ -19,7 +19,7 @@ script: tox
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  user: wagnojunior
+  username: wagnojunior
   password:
     secure: PYPI_TOKEN
   on:
