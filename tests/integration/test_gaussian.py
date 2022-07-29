@@ -6,6 +6,7 @@ Test file for a Gaussian beam.
 # Imports
 # =============================================================================
 import unittest
+import pkg_resources
 
 from src import beamprofiler as ba
 
@@ -16,7 +17,8 @@ class TestGaussian(unittest.TestCase):
     def setUp(self):
         """`setUp` sets up the test fixtures."""
 
-        path = r'C:\Users\wagnojunior.ab\Documents\Python Scripts\beamprofiler\resources'
+        path = pkg_resources.resource_filename(__name__,
+                                               "fixtures")
         fileName = 'gaussian_beam.xls'
         eta = 0.8
         epsilon = 0.1

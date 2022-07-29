@@ -34,6 +34,7 @@ setup(
     long_description_content_type='text/x-rst',
     long_description=readme + '\n\n' + history,
     include_package_data=True,
+    # package_data={'beamprofiler': ['../tests/integration/fixtures/*.xls']},
     keywords='beamprofiler',
     name='beamprofiler',
     packages=find_packages(include=['beamprofiler', 'beamprofiler.*']),
