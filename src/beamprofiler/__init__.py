@@ -7,7 +7,7 @@ definitions commonly used in the industry.
 
 __author__ = """Wagno Alves Braganca Junior"""
 __email__ = 'wagnojunior@gmail.com'
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 
 from src.beamprofiler import analysis
