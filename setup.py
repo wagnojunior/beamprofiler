@@ -10,9 +10,9 @@ with open('README.rst', encoding='utf-8') as readme_file:
 with open('HISTORY.rst', encoding='utf-8') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements = []
 
-test_requirements = [ ]
+test_requirements = []
 
 setup(
     author="Wagno Alves Braganca Jr.",
@@ -34,13 +34,12 @@ setup(
     long_description_content_type='text/x-rst',
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    # package_data={'beamprofiler': ['../tests/integration/fixtures/*.xls']},
     keywords='beamprofiler',
     name='beamprofiler',
-    packages=find_packages(include=['beamprofiler', 'beamprofiler.*']),
-    # package_dir={'beamprofiler': 'src'},
+    packages=find_packages(
+        include=['beamprofiler', 'beamprofiler.*'],
+        where='src'),
     package_dir={'': 'src'},
-    # packages=['beamprofiler'],
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/wagnojunior/beamprofiler',
