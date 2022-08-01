@@ -11,23 +11,23 @@ with open('HISTORY.rst', encoding='utf-8') as history_file:
     history = history_file.read()
 
 requirements = [
-    'cycler>=0.11.0',
-    'fonttools>=4.34.4',
-    'joblib>=1.1.0',
-    'kiwisolver>=1.4.4',
-    'matplotlib>=3.5.2',
-    'numpy>=1.21.6',
-    'packaging>=21.3',
-    'pandaspip ==1.4.3',
-    'pillow>=9.2.0',
-    'pyparsing>=3.0.9',
-    'python-dateutil>=2.8.2',
-    'pytz>=2022.1',
-    'scikit-learn>=1.1.1',
-    'scipy>=1.8.1',
-    'six>=1.16.0',
-    'threadpoolctl>=3.1.0',
-    'xlsxwriter>=3.0.3'
+    'cycler',
+    'fonttools',
+    'joblib',
+    'kiwisolver',
+    'matplotlib',
+    'numpy',
+    'packaging',
+    'pandas',
+    'pillow',
+    'pyparsing',
+    'python-dateutil',
+    'pytz',
+    'scikit-learn',
+    'scipy',
+    'six',
+    'threadpoolctl',
+    'xlsxwriter'
 ]
 
 test_requirements = []
@@ -61,6 +61,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/wagnojunior/beamprofiler',
-    version='0.1.2',
+    version='0.1.3',
     zip_safe=False,
 )

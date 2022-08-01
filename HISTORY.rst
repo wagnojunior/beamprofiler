@@ -5,16 +5,22 @@ History
 0.1.0 (2022-07-28)
 ------------------
 
-* First release on PyPI.
+* First pre-release on PyPI.
 
 
 0.1.1 (2022-07-31)
 ------------------
 
-* Second release on PyPI.
+* Second pre-release on PyPI.
 
 
 0.1.2 (2022-08-01)
 ------------------
 
-* Third release on PyPI.
+* Third pre-release on PyPI.
+
+
+0.1.3 (2022-08-01)
+------------------
+
+* Fourth pre-release on PyPI.
