@@ -17,7 +17,7 @@ from matplotlib.ticker import (MultipleLocator, FormatStrFormatter)
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
 
-from src.beamprofiler.utils import data_processing as dp
+from beamprofiler.utils import data_processing as dp
 
 
 def general_plot():

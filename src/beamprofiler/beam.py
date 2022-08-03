@@ -9,10 +9,10 @@ to the beam analysis.
 # =============================================================================
 import os
 
-from src.beamprofiler.utils import data_processing as dp
-from src.beamprofiler.iso import measured_quantities as mq
-from src.beamprofiler.iso import characterizing_parameters as iso_cp
-from src.beamprofiler.niso import characterizing_parameters as niso_cp
+from beamprofiler.utils import data_processing as dp
+from beamprofiler.iso import measured_quantities as mq
+from beamprofiler.iso import characterizing_parameters as iso_cp
+from beamprofiler.niso import characterizing_parameters as niso_cp
 
 
 class Beam:

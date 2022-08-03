@@ -8,8 +8,8 @@ This module handles the main operation of the beam analysis.
 # =============================================================================
 import sys
 
-from src.beamprofiler import beam
-from src.beamprofiler.utils import report, plot
+from beamprofiler import beam
+from beamprofiler.utils import report, plot
 
 
 def run(path, fileName, eta, epsilon, mix, **kwargs):

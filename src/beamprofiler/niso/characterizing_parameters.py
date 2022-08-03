@@ -10,8 +10,8 @@ accordance with non-ISO definitions.
 import numpy as np
 from scipy import stats
 
-from src.beamprofiler.iso import measured_quantities as mq
-from src.beamprofiler.utils import data_processing as dp
+from beamprofiler.iso import measured_quantities as mq
+from beamprofiler.utils import data_processing as dp
 
 
 def plateau_uniformity(raw_data, mix):

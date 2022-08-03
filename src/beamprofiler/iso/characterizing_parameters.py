@@ -10,8 +10,8 @@ accordance with the **ISO 13694** and **ISO 11145**.
 import math
 import numpy as np
 
-from src.beamprofiler.iso import measured_quantities as mq
-from src.beamprofiler.utils import data_processing as dp
+from beamprofiler.iso import measured_quantities as mq
+from beamprofiler.utils import data_processing as dp
 
 
 def fractional_power(raw_data, clip_level):

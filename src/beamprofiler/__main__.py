@@ -8,7 +8,7 @@ Main module of BeamProfiler.
 # =============================================================================
 import sys
 
-from src.beamprofiler import analysis
+from beamprofiler import analysis
 
 
 if __name__ == '__main__':
