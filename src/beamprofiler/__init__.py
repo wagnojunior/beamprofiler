@@ -7,7 +7,7 @@ definitions commonly used in the industry.
 
 __author__ = """Wagno Alves Braganca Junior"""
 __email__ = 'wagnojunior@gmail.com'
-__version__ = '0.1.3'
+__version__ = '0.1.4'
 
 
 # # =============================================================================
