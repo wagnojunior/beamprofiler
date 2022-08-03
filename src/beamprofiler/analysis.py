@@ -28,9 +28,30 @@ def run(path, fileName, eta, epsilon, mix, **kwargs):
         lower clip-level. o < epsilon < 1.
     mix : int
         number of normal mixtures used in the curve fitting. mix = [1, 2, 3].
-    **kwargs : dict
-        optional keyword arguments. For more information, please see `utils.
-        plot.histogram
+
+    Other Parameters
+    ----------------
+    n_bins : int
+        number of bins used in the histogram.
+    zoom : float
+        zoom of the inset image.
+    x1 : float
+        lower bound of the inset image on the x-axis.
+    x2 : float
+        upper bound of the inset image on the y-axis.
+    y1 : float
+        lower bound of the inset image on the y-axis.
+    y2 : float
+        upper bound of the inset image on the x-axis.
+    z_lim : float
+        upper intensity limite of the cross-section graph of the power density
+        distribution.
+    cross_x : float
+        x-coordinate of the cross-section graph of the power density
+        distribution
+    cross_y : float
+        y-coordinate of the cross-section graph of the power density
+        distribution
 
     Returns
     -------

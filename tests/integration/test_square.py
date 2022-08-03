@@ -8,7 +8,7 @@ Test file for a square beam.
 import unittest
 import pkg_resources
 
-from src import beamprofiler as ba
+from src.beamprofiler import beam
 
 
 class TestSquare(unittest.TestCase):
@@ -24,7 +24,7 @@ class TestSquare(unittest.TestCase):
         epsilon = 0.1
         mix = 1
         self.beam = (
-            ba.beam.Beam(path, fileName, eta, epsilon, mix)
+            beam.Beam(path, fileName, eta, epsilon, mix)
         )
 
     def test_totalPower(self):

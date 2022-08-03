@@ -6,8 +6,10 @@ Main module of BeamProfiler.
 # =============================================================================
 # Imports
 # =============================================================================
-from src.beamprofiler import analysis
 import sys
+
+from src.beamprofiler import analysis
+
 
 if __name__ == '__main__':
 

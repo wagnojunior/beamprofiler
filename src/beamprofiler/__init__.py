@@ -10,6 +10,10 @@ __email__ = 'wagnojunior@gmail.com'
 __version__ = '0.1.3'
 
 
-from src.beamprofiler import analysis
+# # =============================================================================
+# # Imports
+# # =============================================================================
+# from src.beamprofiler import analysis
+# from src.beamprofiler import beam
 
-__all__ = ['analysis']
+# __all__ = ['analysis']
