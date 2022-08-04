@@ -245,9 +245,9 @@ def heat_map_3d(path, fileName, beam, **kwargs):
                     rstride=2, cstride=2, linewidth=2, antialiased=False)
 
     # Set axis labels
-    ax.set_xlabel("x-axis (mm)", labelpad=15)
-    ax.set_ylabel("y-axis (mm)", labelpad=15)
-    ax.set_zlabel("Intensity", labelpad=15)
+    ax.set_xlabel("x-axis (mm)", labelpad=5)
+    ax.set_ylabel("y-axis (mm)", labelpad=5)
+    ax.set_zlabel("Intensity", labelpad=5)
 
     # Save and show
     fileName = os.path.splitext(fileName)[0]
