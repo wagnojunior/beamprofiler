@@ -10,10 +10,13 @@ __email__ = 'wagnojunior@gmail.com'
 __version__ = '0.1.4'
 
 
-# # =============================================================================
-# # Imports
-# # =============================================================================
-# from src.beamprofiler import analysis
-# from src.beamprofiler import beam
+# =============================================================================
+# Imports
+# =============================================================================
+from beamprofiler import analysis
+from beamprofiler import beam
+from beamprofiler import iso
+from beamprofiler import niso
+from beamprofiler import utils
 
-# __all__ = ['analysis']
+__all__ = ['analysis', 'beam', 'iso', 'niso', 'utils']
