@@ -20,7 +20,7 @@ from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
 from beamprofiler.utils import data_processing as dp
 
 
-def general_plot():
+def general_plot(proj=None):
     """
     `general_plot` returns a general-purpose, blank pyplot graph.
 
@@ -40,7 +40,7 @@ def general_plot():
     plt.rcParams.update({'font.size': 6})
 
     fig = plt.figure(figsize=(5, 5 / golden_ratio), dpi=100)
-    ax = fig.add_subplot(1, 1, 1)
+    ax = fig.add_subplot(1, 1, 1, projection=proj)
 
     return fig, ax
 
@@ -127,7 +127,7 @@ def histogram(path, fileName, beam, **kwargs):
     plt.show()
 
 
-def heat_map(path, fileName, beam, **kwargs):
+def heat_map_2d(path, fileName, beam, **kwargs):
     """
     `heat_map` plots the heat map of the power densidty distribution.
 
@@ -224,7 +224,34 @@ def heat_map(path, fileName, beam, **kwargs):
 
     # Save and show
     fileName = os.path.splitext(fileName)[0]
-    plt.savefig(os.path.join(path, fileName + ' - heat map.png'),
+    plt.savefig(os.path.join(path, fileName + ' - 2d heat map.png'),
+                bbox_inches='tight', dpi=300)
+    plt.show()
+
+
+def heat_map_3d(path, fileName, beam, **kwargs):
+
+    fig, ax = general_plot(proj='3d')
+
+    # Configure view
+    ax.view_init(elev=50, azim=135)
+    ax.dist = 11
+
+    # Plot data
+    x = np.mgrid[0:dp.get_xWindow(beam.raw_header):beam.xResolution]
+    y = np.mgrid[0:dp.get_yWindow(beam.raw_header):beam.yResolution]
+    x_3d, y_3d = np.meshgrid(x, y)
+    ax.plot_surface(x_3d, y_3d, beam.raw_data, cmap=cm.gist_rainbow_r,
+                    rstride=2, cstride=2, linewidth=2, antialiased=False)
+
+    # Set axis labels
+    ax.set_xlabel("x-axis (mm)", labelpad=15)
+    ax.set_ylabel("y-axis (mm)", labelpad=15)
+    ax.set_zlabel("Intensity", labelpad=15)
+
+    # Save and show
+    fileName = os.path.splitext(fileName)[0]
+    plt.savefig(os.path.join(path, fileName + ' - 3d heat map.png'),
                 bbox_inches='tight', dpi=300)
     plt.show()
 
@@ -308,5 +335,6 @@ def run(path, fileName, beam, **kwargs):
     """
 
     histogram(path, fileName, beam, **kwargs)
-    heat_map(path, fileName, beam, **kwargs)
+    heat_map_2d(path, fileName, beam, **kwargs)
+    heat_map_3d(path, fileName, beam, **kwargs)
     norm_energy_curve(path, fileName, beam)

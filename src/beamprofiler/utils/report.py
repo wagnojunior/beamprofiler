@@ -180,7 +180,8 @@ def write(path, fileName, beam):
                    'perfect vertical edge'])
 
     image(ws, 'E1', os.path.join(path, fileName + ' - histogram.png'))
-    image(ws, 'E17', os.path.join(path, fileName + ' - heat map.png'))
+    image(ws, 'E17', os.path.join(path, fileName + ' - 2d heat map.png'))
+    image(ws, 'J17', os.path.join(path, fileName + ' - 3d heat map.png'))
 
     # =========================================================================
     # Create and populate the non ISO sheet
