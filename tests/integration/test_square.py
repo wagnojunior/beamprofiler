@@ -8,7 +8,7 @@ Test file for a square beam.
 import unittest
 import pkg_resources
 
-from src.beamprofiler import beam
+from beamprofiler import beam
 
 
 class TestSquare(unittest.TestCase):
