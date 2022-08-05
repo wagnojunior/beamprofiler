@@ -1,4 +1,4 @@
-beamprofiler.utils.plot
+﻿beamprofiler.utils.plot
 =======================
 
 .. automodule:: beamprofiler.utils.plot
@@ -14,7 +14,8 @@ beamprofiler.utils.plot
    .. autosummary::
    
       general_plot
-      heat_map
+      heat_map_2d
+      heat_map_3d
       histogram
       norm_energy_curve
       run
