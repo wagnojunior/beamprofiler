@@ -309,7 +309,7 @@ def norm_energy_curve(path, fileName, beam):
 
     # Save and show
     fileName = os.path.splitext(fileName)[0]
-    plt.savefig(os.path.join(path, fileName + ' - top-hat factor.png'),
+    plt.savefig(os.path.join(path, fileName + ' - energy curve.png'),
                 bbox_inches='tight', dpi=300)
     plt.show()
 
