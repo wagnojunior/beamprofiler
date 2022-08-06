@@ -16,7 +16,7 @@ from beamprofiler.utils import data_processing as dp
 
 def plateau_uniformity(raw_data, mix):
     """
-    `platerau_uniformity` returns the plateau uniformity of the power density
+    `plateau_uniformity` returns the plateau uniformity of the power density
     distribution. In order to avoid errors induced by background noise, it is
     recommended to use as input a noise-corrected dataframe.
 

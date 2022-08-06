@@ -307,7 +307,7 @@ def image_moments(raw_data, raw_header, p, q, x0, y0):
 
 def normal_mixture(df, mix):
     """
-    normal_mixture returns the normal mixture fit.
+    `normal_mixture` returns the normal mixture fit.
 
     Parameters
     ----------
