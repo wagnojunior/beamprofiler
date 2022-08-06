@@ -37,20 +37,15 @@ generates a `.xlsx` report with the following items:
   
 * *ISO 11145* [2]_: beam centroid, beam width.
 
-|
-
 .. figure:: images/iso.png
    :scale: 60 %
    :alt: Report of ISO parameters
  
    Report format of ISO parameters
 
-|
 
 * *Non-ISO*: clip-level beam width [3]_, clip-level edge width [3]_, modified
   plateau uniformity [4]_, top-hat factor [5]_.
-  
-|
   
 .. figure:: images/non-iso.png
    :scale: 60 %
@@ -58,19 +53,14 @@ generates a `.xlsx` report with the following items:
  
    Report format of non-ISO parameters
 
-|
 
 * *Auxiliary graphs*: histogram, 2D heat map, 3D heat map, energy curve [5]_.
-
-|
 
 .. figure:: images/histogram.png
    :scale: 30 %
    :alt: Histogram
  
-   Histogram
-
-|   
+   Histogram  
 
 .. figure:: images/2d_heat_map.png
    :scale: 30 %
@@ -78,23 +68,17 @@ generates a `.xlsx` report with the following items:
  
    2D heat map
    
-|
-   
 .. figure:: images/3d_heat_map.png
    :scale: 30 %
    :alt: 3D heat map
  
-   3D heat map
-
-|   
+   3D heat map  
  
 .. figure:: images/energy_curve.png
    :scale: 30 %
    :alt: Energy curve
  
    Energy curve
-
-|  
 
 
 .. [1] https://www.iso.org/standard/72945.html
