@@ -6,8 +6,10 @@ This module handles the data processing prior to the beam analysis.
 # =============================================================================
 # Imports
 # =============================================================================
+import os
 import pandas as pd
 import numpy as np
+
 from sklearn import mixture
 from scipy import stats
 
@@ -29,9 +31,13 @@ def raw_data(fullPath):
 
     """
 
-    # Read the .csv file using tab as separator. The first row is the header,
-    # therefore is it skipped
-    return pd.read_csv(fullPath, header=None, sep='\t', skiprows=1)
+    # Check the file's extension
+    ext = os.path.splitext(fullPath)[1]
+
+    if ext == '.xls' or ext == '.xlsx':
+        return pd.read_csv(fullPath, header=None, sep='\t', skiprows=1)
+    elif ext == '.csv':
+        return pd.read_csv(fullPath, header=None, sep=',', skiprows=1)
 
 
 def raw_header(fullPath):
@@ -53,8 +59,13 @@ def raw_header(fullPath):
 
     """
 
-    # Read the .csv file using tab as separator. Only the first row is read
-    return pd.read_csv(fullPath, header=None, sep='\t', nrows=1)
+    # Check the file's extension
+    ext = os.path.splitext(fullPath)[1]
+
+    if ext == '.xls' or ext == '.xlsx':
+        return pd.read_csv(fullPath, header=None, sep='\t', nrows=1)
+    elif ext == '.csv':
+        return pd.read_csv(fullPath, header=None, sep=',', nrows=1)
 
 
 def remove_background(raw_data, raw_header):
