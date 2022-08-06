@@ -224,7 +224,7 @@ def write(path, fileName, beam):
                    'Independent of the clip-level. Equals 1 for a perfect '
                    'square'])
 
-    image(ws, 'E1', os.path.join(path, fileName + ' - top-hat factor.png'))
+    image(ws, 'E1', os.path.join(path, fileName + ' - energy curve.png'))
 
     try:
         wb.close()
