@@ -200,3 +200,18 @@ The final code follows:
     
     # Generate the summary report
     beamprofiler.utils.report.write(path, fileName, myBeam)
+    
+    
+###
+.. figure:: docs/_static/images/iso.png
+   :scale: 60 %
+   :alt: Report of ISO parameters
+ 
+   Report format of ISO parameters
+   
+
+.. figure:: _static/images/non-iso.png
+   :scale: 60 %
+   :alt: Report of non-ISO parameters
+ 
+   Report format of non-ISO parameters
