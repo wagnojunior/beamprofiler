@@ -40,7 +40,7 @@ Example
     both x- and y-axis), and a null point of 149.063 ADC/px.
        
     .. csv-table:: Standard layout
-       :file: files/example.csv
+       :file: _static/files/example.csv
        :header-rows: 1
        :class: special
 
