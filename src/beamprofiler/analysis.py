@@ -19,9 +19,9 @@ def run(path, fileName, eta, epsilon, mix, **kwargs):
     Parameters
     ----------
     path : str
-        full path to the power density distribution file.
+        path to the power density distribution file.
     fileName : str
-        file name the power density distribution.
+        name of the power density distribution file.
     eta : float
         upper clip-level. 0 < eta < 1.
     epsilon : float

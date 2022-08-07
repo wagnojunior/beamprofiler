@@ -22,11 +22,16 @@ from beamprofiler.utils import data_processing as dp
 
 def general_plot(proj=None):
     """
-    `general_plot` returns a general-purpose, blank pyplot graph.
+    `general_plot` returns a general-purposse, blank pyplot graph.
+
+    Parameters
+    ----------
+    proj : str, optional
+        Axes projection. The default is None.
 
     Returns
     -------
-    fig : Figure object of matplotlib.figure module
+    fig : figure object of matplotlib.figure module
         blank matplotlib figure object.
     ax : AxesSubplot object of matplotlib.axes_subplots module
         blank matplotlib axes object.
@@ -54,23 +59,25 @@ def histogram(path, fileName, beam, **kwargs):
     ----------
     path : std
         path to where the graph will be saved.
+    fileName : str
+        name of the power density distribution file.
     beam : Beam
         instance of type Beam.
 
     Other Parameters
     ----------------
     n_bins : int
-        number of bins used in the histogram.
+        number of bins used in the histogram. The default is 256.
     zoom : float
-        zoom of the inset image.
+        zoom of the inset image. The default is 2.
     x1 : float
-        lower bound of the inset image on the x-axis.
+        lower bound of the inset image on the x-axis. The default is 1600.
     x2 : float
-        upper bound of the inset image on the y-axis.
+        upper bound of the inset image on the y-axis. The default is 2000.
     y1 : float
-        lower bound of the inset image on the y-axis.
+        lower bound of the inset image on the y-axis. The default is 0.
     y2 : float
-        upper bound of the inset image on the x-axis.
+        upper bound of the inset image on the x-axis. The default is 5000.
 
     Returns
     -------
@@ -79,7 +86,7 @@ def histogram(path, fileName, beam, **kwargs):
     """
 
     # Check if any default value has been redefined in kwargs
-    n_bins = kwargs.pop('bins', 256)
+    n_bins = kwargs.pop('n_bins', 256)
     zoom = kwargs.pop('zoom', 2)
     x1 = kwargs.pop('x1', 1600)
     x2 = kwargs.pop('x2', 2000)
@@ -129,12 +136,14 @@ def histogram(path, fileName, beam, **kwargs):
 
 def heat_map_2d(path, fileName, beam, **kwargs):
     """
-    `heat_map` plots the heat map of the power densidty distribution.
+    `heat_map_2d` plots the 2D heat map of the power densidty distribution.
 
     Parameters
     ----------
     path : str
-        path to where the graph will be saved..
+        path to where the graph will be saved.
+    fileName : str
+        name of the power density distribution file.
     beam : Beam
         instance of type `Beam`.
 
@@ -142,13 +151,15 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     ----------------
     z_lim : float
         upper intensity limite of the cross-section graph of the power density
-        distribution.
+        distribution. The default is -1.
     cross_x : float
         x-coordinate of the cross-section graph of the power density
-        distribution
+        distribution. The default is the calculated beam center about the
+        x-axis.
     cross_y : float
         y-coordinate of the cross-section graph of the power density
-        distribution
+        distribution. The default is the calculated beam center about the
+        y-axis.
 
     Returns
     -------
@@ -230,12 +241,43 @@ def heat_map_2d(path, fileName, beam, **kwargs):
 
 
 def heat_map_3d(path, fileName, beam, **kwargs):
+    """
+    `heat_map_3d` plots the 3D heat map of the power densidty distribution.
+
+    Parameters
+    ----------
+    path : str
+        path to where the graph will be saved.
+    fileName : str
+        name of the power density distribution file.
+    beam : Beam
+        instance of type `Beam`.
+
+    Other Parameters
+    ----------------
+    elev : float
+        elevation viewing angle. The default is 50.
+    azim : float
+        azimuthal viewing angle. The default is 135.
+    dist : float
+        distance from the plot. The default is 11.
+
+    Returns
+    -------
+    None.
+
+    """
+
+    # Check if any default value has been redefined in kwargs
+    elev = kwargs.pop('elev', 50)
+    azim = kwargs.pop('azim', 135)
+    dist = kwargs.pop('dist', 11)
 
     fig, ax = general_plot(proj='3d')
 
     # Configure view
-    ax.view_init(elev=50, azim=135)
-    ax.dist = 11
+    ax.view_init(elev=elev, azim=azim)
+    ax.dist = dist
 
     # Plot data
     x = np.mgrid[0:dp.get_xWindow(beam.raw_header):beam.xResolution]
@@ -257,6 +299,24 @@ def heat_map_3d(path, fileName, beam, **kwargs):
 
 
 def norm_energy_curve(path, fileName, beam):
+    """
+    `norm_energy_curve` plots the normalized energy curve of the power density
+    distribution.
+
+    Parameters
+    ----------
+    path : str
+        path to where the graph will be saved.
+    fileName : str
+        name of the power density distribution file.
+    beam : Beam
+        instance of type `Beam`.
+
+    Returns
+    -------
+    None.
+
+    """
 
     # Get the figure and axes objects
     fig, ax = general_plot()

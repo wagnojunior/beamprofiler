@@ -35,15 +35,15 @@ class Beam:
         Parameters
         ----------
         path : str
-            full path to the power density distribution file.
+            path to the power density distribution file.
         fileName : str
-            file name the power density distribution.
+            name of the power density distribution file.
         eta : float
             upper clip level. 0 <= eta <= 1.
         epsilon : float
             lower clip level. 0 <= epsilon <= eta <= 1.
         mix : int
-            number of normal mixtirues used in the normal fit. mix=[1, 2, 3].
+            number of normal mixtures used in the normal fit. mix=[1, 2, 3].
 
         Returns
         -------
