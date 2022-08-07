@@ -1,4 +1,4 @@
-﻿beamprofiler.utils.plot
+beamprofiler.utils.plot
 =======================
 
 .. automodule:: beamprofiler.utils.plot

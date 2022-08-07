@@ -6,6 +6,7 @@ Welcome to BeamProfiler's documentation!
    :caption: Contents:
 
    readme
+   theory
    installation
    usage
    api

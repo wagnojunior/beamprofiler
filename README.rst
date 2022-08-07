@@ -18,6 +18,12 @@ BeamProfiler
 according to ISO 13694, ISO 11145, and other non-ISO definitions commonly used
 in the industry.
 
+If you are new to the field of laser beam analysis or want to study it further
+check out the :doc:`theory` for a list of reference papers and standards. For
+more information on how to install **BeamProfiler**, go to the
+:doc:`installation` page. If you need examples of how to use **BeamProfiler**
+refer to the :doc:`usage` page.
+
 
 * Free software: GNU General Public License v3
 * Documentation: https://beamprofiler.readthedocs.io.
@@ -30,31 +36,35 @@ Features
 generates a `.xlsx` report with the following items:
 
 
-* *ISO 13694* [1]_: total power, clip-level power, maximum power density, clip-level
-  power density, clip-level average power density, clip-level irradiation area,
-  beam aspect ratio, fractional power, flatness factor, beam uniformity, plateau
-  uniformity, edge steepness.
+ISO parameters:
+    total power, clip-level power, maximum power density, clip-level
+    power density, clip-level average power density, clip-level irradiation
+    area, beam aspect ratio, fractional power, flatness factor, beam
+    uniformity, plateau uniformity, edge steepness, beam centroid, beam width.
+
+
+Non-ISO parameters:
+    clip-level beam width, clip-level edge width, modified plateau uniformity,
+    top-hat factor.
   
-* *ISO 11145* [2]_: beam centroid, beam width.
+Auxiliary graphs
+    histogram, 2D heat map, 3D heat map, normalized energy curve.
+    
+
+Below are some illustrations:
 
 .. figure:: images/iso.png
    :scale: 60 %
    :alt: Report of ISO parameters
  
-   Report format of ISO parameters
+   Report format of ISO parameters  
 
-
-* *Non-ISO*: clip-level beam width [3]_, clip-level edge width [3]_, modified
-  plateau uniformity [4]_, top-hat factor [5]_.
-  
 .. figure:: images/non-iso.png
    :scale: 60 %
    :alt: Report of non-ISO parameters
  
    Report format of non-ISO parameters
 
-
-* *Auxiliary graphs*: histogram, 2D heat map, 3D heat map, energy curve [5]_.
 
 .. figure:: images/histogram.png
    :scale: 30 %
@@ -79,15 +89,6 @@ generates a `.xlsx` report with the following items:
    :alt: Energy curve
  
    Energy curve
-
-
-.. [1] https://www.iso.org/standard/72945.html
-.. [2] https://www.iso.org/standard/72944.html
-.. [3] https://doi.org/10.1117/1.OE.60.6.060801
-.. [4] https://doi.org/10.1117/12.611248
-.. [5] https://doi.org/10.1117/12.143846
-
-
 
 
 Credits

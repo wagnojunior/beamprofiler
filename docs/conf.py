@@ -37,11 +37,18 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
-    'sphinx.ext.autosectionlabel',
+    'sphinx.ext.autosectionlabel'
 ]
 
-# Make sure the target is unique
+# Extra config for autosectionlabel
 autosectionlabel_prefix_document = True
+
+# Extra config for napoleon
+napoleon_numpy_docstring = True
+napoleon_use_param = False
+
+# Enable numref - reference to numbered items
+numfig = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
