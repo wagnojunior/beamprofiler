@@ -53,7 +53,7 @@ Auxiliary graphs
 
 Below are some illustrations:
 
-.. figure:: _static/images/iso.png
+.. figure:: docs/_static/images/iso.png
    :scale: 60 %
    :alt: Report of ISO parameters
  
