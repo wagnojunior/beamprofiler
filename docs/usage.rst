@@ -40,7 +40,7 @@ Example
     both x- and y-axis), and a null point of 149.063 ADC/px.
        
     .. csv-table:: Standard layout
-       :file: _static/files/example.csv
+       :file: files/example.csv
        :header-rows: 1
        :class: special
 
@@ -200,18 +200,3 @@ The final code follows:
     
     # Generate the summary report
     beamprofiler.utils.report.write(path, fileName, myBeam)
-    
-    
-###
-.. figure:: docs/_static/images/iso.png
-   :scale: 60 %
-   :alt: Report of ISO parameters
- 
-   Report format of ISO parameters
-   
-
-.. figure:: _static/images/non-iso.png
-   :scale: 60 %
-   :alt: Report of non-ISO parameters
- 
-   Report format of non-ISO parameters

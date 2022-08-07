@@ -53,42 +53,42 @@ Auxiliary graphs
 
 Below are some illustrations:
 
-.. figure:: docs/_static/images/iso.png
+.. figure:: images/iso.png
    :scale: 60 %
    :alt: Report of ISO parameters
  
    Report format of ISO parameters
    
 
-.. figure:: _static/images/non-iso.png
+.. figure:: images/non-iso.png
    :scale: 60 %
    :alt: Report of non-ISO parameters
  
    Report format of non-ISO parameters
 
 
-.. figure:: _static/images/histogram.png
+.. figure:: images/histogram.png
    :scale: 30 %
    :alt: Histogram
  
    Histogram  
 
 
-.. figure:: _static/images/2d_heat_map.png
+.. figure:: images/2d_heat_map.png
    :scale: 30 %
    :alt: 2D heat map
  
    2D heat map
  
    
-.. figure:: _static/images/3d_heat_map.png
+.. figure:: images/3d_heat_map.png
    :scale: 30 %
    :alt: 3D heat map
  
    3D heat map  
 
  
-.. figure:: _static/images/energy_curve.png
+.. figure:: images/energy_curve.png
    :scale: 30 %
    :alt: Energy curve
  
