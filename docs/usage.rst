@@ -127,7 +127,6 @@ How to use
       myBeam = beamprofiler.Beam(path, fileName, eta, epsilon, mix)
 
    .. autofunction:: beamprofiler.Beam.__init__
-      :noindex:
 
    
    The variable ``myBeam`` is created and all the relevant data related to the beam analysis are saved in it, including the following:
