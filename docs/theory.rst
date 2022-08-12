@@ -14,7 +14,7 @@ Introduction
     :ref:`1 <theory-ref-1>`.
 
 Several ISO and non-ISO characterizing parameters must be associated with a
-user-defined value called *clip-level* (denoted by the greek letter :term:`eta` 
+user-defined value called *clip-level* (denoted by the Greek letter :term:`eta` 
 `\eta`). The *clip-level* defines a fraction of the characterizing parameter
 associated with it, and it is mathematically defined as (`0 \leq \eta < 1`).
 For instance, if the maximum power density (`E_{max}`) of a laser beam is

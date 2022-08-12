@@ -89,7 +89,7 @@ How to use
 
       # Enter the path to the pdd file and its name
       path = r'C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd'
-      fileName = 'example.xls'
+      fileName = 'lab_beam.xls'
 
    
    We can now move on set a few user-defined values.
@@ -173,9 +173,9 @@ How to use
 
    .. figure:: images/example_histogram_1.png
       :scale: 40 %
-      :alt: Histogram plot for the pdd example.xls
+      :alt: Histogram plot for the pdd lab_beam.xls
 
-      Histogram plot for the pdd example.xls
+      Histogram plot for the pdd lab_beam.xls
 
 
    We see that a single Gaussian distribution is not sufficient to fit the data at hand, which results in an unreliable laser beam characterization. Therefore, go back to line 10, change it so that two Gaussian distributions are used instead, and run the code again.
@@ -195,9 +195,9 @@ How to use
 
    .. figure:: images/example_histogram_2.png
       :scale: 40 %
-      :alt: Modified histogram plot for the pdd example.xls
+      :alt: Modified histogram plot for the pdd lab_beam.xls
 
-      Modified histogram plot for the pdd example.xls
+      Modified histogram plot for the pdd lab_beam.xls
 
    
    That is much better, right? For a reliable laser beam characterization do make sure that the normal fit is appropriate.
@@ -231,9 +231,9 @@ How to use
 
    .. figure:: images/example_histogram_3.png
       :scale: 40 %
-      :alt: Customized histogram plot for the pdd example.xls
+      :alt: Customized histogram plot for the pdd lab_beam.xls
 
-      Customized histogram plot for the pdd example.xls
+      Customized histogram plot for the pdd lab_beam.xls
 
    
    See the difference? The number of histogram bins ``n_bins`` was increased from ``256`` to ``512``, the ``zoom`` of the inset image was increased from ``2`` to ``2.5``, and the top delimiter ``y2`` of the inset image was decreased from ``5000`` to ``2500``. The bottom delimiter ``y1``, the left delimiter ``x1``, and the right delimiter ``x2`` were not changed.
@@ -258,9 +258,9 @@ How to use
 
    .. figure:: images/example_2d_heatmap_1.png
       :scale: 40 %
-      :alt: 2D heat map plot for the pdd example.xls
+      :alt: 2D heat map plot for the pdd lab_beam.xls
 
-      2D heat map plot for the pdd example.xls
+      2D heat map plot for the pdd lab_beam.xls
 
    
    It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 27, add the following lines, and execute the code.
@@ -280,9 +280,9 @@ How to use
 
    .. figure:: images/example_2d_heatmap_2.png
       :scale: 40 %
-      :alt: Modified 2D heat map plot for the pdd example.xls
+      :alt: Modified 2D heat map plot for the pdd lab_beam.xls
 
-      Modified 2D heat map plot for the pdd example.xls
+      Modified 2D heat map plot for the pdd lab_beam.xls
 
 
    See the difference? The intensity axis was set to ``2500``, and the cross-section point was set to ``20 mm`` on both x- and y-axis.  
@@ -309,9 +309,9 @@ How to use
 
    .. figure:: images/example_3d_heatmap_1.png
          :scale: 40 %
-         :alt: 3D heat map plot for the pdd example.xls
+         :alt: 3D heat map plot for the pdd lab_beam.xls
 
-         3D heat map plot for the pdd example.xls
+         3D heat map plot for the pdd lab_beam.xls
 
 
    It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 35, add the following lines, and execute the code.
@@ -331,9 +331,9 @@ How to use
 
    .. figure:: images/example_3d_heatmap_2.png
          :scale: 40 %
-         :alt: Modified 3D heat map plot for the pdd example.xls
+         :alt: Modified 3D heat map plot for the pdd lab_beam.xls
 
-         Modified 3D heat map plot for the pdd example.xls
+         Modified 3D heat map plot for the pdd lab_beam.xls
 
    See the difference? The elevation angle was set to ``30 deg``, the azimuthal angle was set to ``45 deg``, and the distance was set to ``15``.
 
@@ -360,9 +360,9 @@ How to use
 
    .. figure:: images/example_energy_curve.png
          :scale: 40 %
-         :alt: Normalized energy curve plot for the pdd example.xls
+         :alt: Normalized energy curve plot for the pdd lab_beam.xls
 
-         Normalized energy curve plot for the pdd example.xls
+         Normalized energy curve plot for the pdd lab_beam.xls
 
 
 10. **Generate the report file**
@@ -379,13 +379,13 @@ How to use
       :noindex:
 
 
-   The file ``Beam Analysis - example.xlsx`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. It includes all the :ref:`ISO <usage-step-4-iso>` and :ref:`non-ISO <usage-step-4-noniso>` characterizing parameters listed in step 4, and the auxiliary graphs from steps 5–9.
+   The file ``Beam Analysis - lab_beam.xlsx`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. It includes all the :ref:`ISO <usage-step-4-iso>` and :ref:`non-ISO <usage-step-4-noniso>` characterizing parameters listed in step 4, and the auxiliary graphs from steps 5–9.
 
    .. figure:: images/example_report.png
          :scale: 40 %
-         :alt: Beam analysis report for the pdd example.xls
+         :alt: Beam analysis report for the pdd lab_beam.xls
 
-         Beam analysis report for the pdd example.xls
+         Beam analysis report for the pdd lab_beam.xls
 
 11. **Review the final code and try it yourself**
     
@@ -398,7 +398,7 @@ How to use
 
       # Enter the path to the pdd file and its name
       path = r'C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd'
-      fileName = 'example.xls'
+      fileName = 'lab_beam.xls'
 
       # Set the user-defined values
       eta = 0.8
