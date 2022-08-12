@@ -127,6 +127,7 @@ How to use
       myBeam = beamprofiler.Beam(path, fileName, eta, epsilon, mix)
 
    .. autofunction:: beamprofiler.Beam.__init__
+      :noindex:
 
    
    The variable ``myBeam`` is created and all the relevant data related to the beam analysis are saved in it, including the following:
@@ -161,6 +162,7 @@ How to use
       beamprofiler.utils.plot.histogram(path, fileName, myBeam)
 
    .. autofunction:: beamprofiler.utils.plot.histogram
+      :noindex:
 
    .. important::
          If the ``kwargs`` are omitted the histogram is ploted using the default
@@ -250,6 +252,7 @@ How to use
       beamprofiler.utils.plot.heat_map_2d(path, fileName, myBeam)
 
    .. autofunction:: beamprofiler.utils.plot.heat_map_2d
+      :noindex:
 
    
    The file ``example - 2d heat map.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. As with the histogram plot, if the ``kwargs`` are omitted the 2D heat map is plotted using the default format.
@@ -300,6 +303,7 @@ How to use
       beamprofiler.utils.plot.heat_map_3d(path, fileName, myBeam)
 
    .. autofunction:: beamprofiler.utils.plot.heat_map_3d
+      :noindex:
 
 
    The file ``example - 3d heat map.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. As with the 2D heat map plot, if the ``kwargs`` are omitted the 3D heat map is plotted using the default format.
@@ -349,6 +353,7 @@ How to use
       beamprofiler.utils.plot.norm_energy_curve(path, fileName, myBeam)
 
    .. autofunction:: beamprofiler.utils.plot.norm_energy_curve
+      :noindex:
 
 
    The file ``example - energy curve.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. Unlike the other auxiliary graphs, there are no customization for the normalized energy curve plot.
@@ -372,6 +377,7 @@ How to use
       beamprofiler.utils.report.write(path, fileName, myBeam)
 
    .. autofunction:: beamprofiler.utils.report.write
+      :noindex:
 
 
    The file ``Beam Analysis - example.xlsx`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. It includes all the :ref:`ISO <usage-step-4-iso>` and :ref:`non-ISO <usage-step-4-noniso>` characterizing parameters listed in step 4, and the auxiliary graphs from steps 5–9.

@@ -12,6 +12,7 @@ beamprofiler.niso.characterizing\_parameters
    .. rubric:: Functions
 
    .. autosummary::
+      :toctree:
    
       clip_level_beam_width
       clip_level_edge_width

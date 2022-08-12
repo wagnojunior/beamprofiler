@@ -12,6 +12,7 @@ beamprofiler.utils.plot
    .. rubric:: Functions
 
    .. autosummary::
+      :toctree:
    
       general_plot
       heat_map_2d

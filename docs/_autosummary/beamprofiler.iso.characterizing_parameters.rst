@@ -12,6 +12,7 @@ beamprofiler.iso.characterizing\_parameters
    .. rubric:: Functions
 
    .. autosummary::
+      :toctree:
    
       beam_aspect_ratio
       beam_center

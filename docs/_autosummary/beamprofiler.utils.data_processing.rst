@@ -12,6 +12,7 @@ beamprofiler.utils.data\_processing
    .. rubric:: Functions
 
    .. autosummary::
+      :toctree:
    
       get_nullPoint
       get_xPixel

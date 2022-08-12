@@ -12,6 +12,7 @@ beamprofiler.iso.measured\_quantities
    .. rubric:: Functions
 
    .. autosummary::
+      :toctree:
    
       clip_level_power
       clip_level_power_density

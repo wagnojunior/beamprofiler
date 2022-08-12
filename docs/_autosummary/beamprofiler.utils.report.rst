@@ -12,6 +12,7 @@ beamprofiler.utils.report
    .. rubric:: Functions
 
    .. autosummary::
+      :toctree:
    
       write
    

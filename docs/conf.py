@@ -50,6 +50,9 @@ napoleon_use_param = False
 # Enable numref - reference to numbered items
 numfig = True
 
+# Extra config for autosummary
+autosummary_generate = True
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

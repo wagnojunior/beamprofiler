@@ -25,6 +25,7 @@ beamprofiler.iso
 
 .. autosummary::
    :toctree:
+   :template: custom-module.rst
    :recursive:
 
    beamprofiler.iso.characterizing_parameters

@@ -25,6 +25,7 @@ beamprofiler.utils
 
 .. autosummary::
    :toctree:
+   :template: custom-module.rst
    :recursive:
 
    beamprofiler.utils.data_processing

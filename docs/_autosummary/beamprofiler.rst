@@ -25,6 +25,7 @@
 
 .. autosummary::
    :toctree:
+   :template: custom-module.rst
    :recursive:
 
    beamprofiler.analysis
