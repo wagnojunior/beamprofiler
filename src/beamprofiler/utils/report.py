@@ -73,7 +73,7 @@ def write(path, fileName, beam):
         sheet.write('C'+str(row), value[2])
         sheet.write('D'+str(row), value[3])
 
-    # Define a mathod to insert an image
+    # Define a method to insert an image
     def image(sheet, cell, path):
 
         sheet.insert_image(cell, path)
@@ -229,5 +229,5 @@ def write(path, fileName, beam):
     try:
         wb.close()
     except xlsxwriter.exceptions.FileCreateError:
-        print("The file is curretly open and won't be saved. Please, close "
+        print("The file is currently open and won't be saved. Please, close "
               "the file and run the analysis again.")

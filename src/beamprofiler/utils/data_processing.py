@@ -263,7 +263,7 @@ def image_moments(raw_data, raw_header, p, q, x0, y0):
     about the y-axis).
 
     M_p,q = sum_x[sum_y[(x-x0)^p * (y-y0)^q * f(x, y)]] is the image moment of
-    order p and reference point x0 on the x-axis and of order q and refernce
+    order p and reference point x0 on the x-axis and of order q and reference
     point y0 on the y-axis.
 
     Parameters
@@ -425,7 +425,7 @@ def pre_top_hat(raw_data):
         df.reindex(np.arange(min(df.index), max(df.index)+1), fill_value=0)
     )
 
-    # Add reverse commulative sum
+    # Add reverse cumulative sum
     df['Cumulative Energy'] = (
         df.loc[::-1, 'Energy'].cumsum()[::-1]
     )

@@ -22,8 +22,8 @@ For instance, if the maximum power density (`E_{max}`) of a laser beam is
 `\eta = 0.8` is `800 ADC/px`.
 
 Similarly, some ISO and non-ISO characterizing parameters must be associated
-with two clip-levels, namely the *upper clip-level* (denoted by the greek
-letter :term:`eta` `\eta`) and the *lower clip-level* (denoted by the greek
+with two clip-levels, namely the *upper clip-level* (denoted by the Greek
+letter :term:`eta` `\eta`) and the *lower clip-level* (denoted by the Greek
 letter :term:`epsilon` `\epsilon`). The *upper clip-level* and the *lower
 clip-level* are mathematically expressed as `0 \leq \epsilon < \eta < 1`. The
 values of :term:`eta` and :term:`epsilon` largely depend on the quality 
@@ -48,7 +48,7 @@ the field.
 
 1. **Characterization of laser beams: theory and application in laser-assisted bonding process**
     
-    This tutorial paper offers a pedagogial introduction to the theory and
+    This tutorial paper offers a pedagogical introduction to the theory and
     application of laser beam analysis through the use of a minimum working
     example. It is ideal for newcomers to the field of laser beam
     characterization.
@@ -95,7 +95,7 @@ the field.
 
     This paper proposes a slight modification to the ISO standards in order
     to improve its reliability. It is ideal for those who fully understand the
-    ISO standards and regonize its limitation.
+    ISO standards and recognize its limitation.
     
     :Authors: Chang, Chao and Cramer, Larry and Danielson, Don and Norby, James
     :Proceedings: XV International Symposium on Gas Flow, Chemical Lasers, and
@@ -109,7 +109,7 @@ the field.
 5. **Specifying excimer beam uniformity**
 
     This paper defines the *top-hat factor*, a non-ISO definition that serves a
-    a genral indicator of beam quality with a single number. It is relevant for
+    a general indicator of beam quality with a single number. It is relevant for
     those already familiar with the ISO standards and want to explore other
     characterizing parameters commonly used in the industry.
     

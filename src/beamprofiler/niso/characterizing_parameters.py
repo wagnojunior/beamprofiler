@@ -190,7 +190,7 @@ def clip_level_edge_width(raw_data, clip_level_1, clip_level_2):
     # Remove zero values
     edge_width = edge_width[edge_width > 0]
 
-    # Filter out outlilers 2 times
+    # Filter out outliers 2 times
     for i in range(2):
 
         # Identify the outliers by calculating the z-score
@@ -229,7 +229,7 @@ def top_hat_factor(df):
     Parameters
     ----------
     df : dataframe
-        dataframe that contains, amoung other thinds, the normalized cumulative
+        dataframe that contains, among other things, the normalized cumulative
         energy.
 
     Returns

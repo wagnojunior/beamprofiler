@@ -235,7 +235,7 @@ def flatness_factor(clip_level_average_power_density, max_power_density):
 
     The flatness factor is defined as the ratio of the clip-level average power
     density to the maximum power density. In other order, the flatness factor
-    quantifies how much the avarage clip-level power density deviates from the
+    quantifies how much the average clip-level power density deviates from the
     maximum power density.
 
     Parameters
@@ -371,7 +371,7 @@ def plateau_uniformity(raw_data, max_power_density, mix):
 def edge_steepness(clip_level_irradiation_area_1,
                    clip_level_irradiation_area_2):
     """
-    `edge_steepness` returns the edge steepnes of the power density
+    `edge_steepness` returns the edge steepness of the power density
     distribution. The edge steepness is defined as the normalized difference
     between two clip-level irradiation areas, namely the clip-level irradiation
     area 1 (defined by the clip-level 1) and the clip-level irradiation area 2
@@ -396,7 +396,7 @@ def edge_steepness(clip_level_irradiation_area_1,
     """
 
     if clip_level_irradiation_area_1 < clip_level_irradiation_area_2:
-        raise Exception("The clip-level erradiation 1 should be larger than \
+        raise Exception("The clip-level irradiation 1 should be larger than \
                         the clip-level irradiation 2.")
 
     return (

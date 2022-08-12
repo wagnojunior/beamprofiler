@@ -22,7 +22,7 @@ from beamprofiler.utils import data_processing as dp
 
 def general_plot(proj=None):
     """
-    `general_plot` returns a general-purposse, blank pyplot graph.
+    `general_plot` returns a general-purpose, blank pyplot graph.
 
     Parameters
     ----------
@@ -115,7 +115,7 @@ def histogram(path, fileName, beam, **kwargs):
     inset.tick_params(labelleft=False, labelbottom=False)
     mark_inset(ax, inset, loc1=3, loc2=3, fc="none", ec="0.5")
 
-    # Get the highest histogram peak around the high-poewr density area (upper
+    # Get the highest histogram peak around the high-power density area (upper
     # 40% of the number of bins)
     low_bound = int(n_bins * 0.6)
     high_bound = n_bins
@@ -136,7 +136,7 @@ def histogram(path, fileName, beam, **kwargs):
 
 def heat_map_2d(path, fileName, beam, **kwargs):
     """
-    `heat_map_2d` plots the 2D heat map of the power densidty distribution.
+    `heat_map_2d` plots the 2D heat map of the power density distribution.
 
     Parameters
     ----------
@@ -150,7 +150,7 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     Other Parameters
     ----------------
     z_lim : float
-        upper intensity limite of the cross-section graph of the power density
+        upper intensity limit of the cross-section graph of the power density
         distribution. The default is -1.
     cross_x : float
         x-coordinate of the cross-section graph of the power density
@@ -242,7 +242,7 @@ def heat_map_2d(path, fileName, beam, **kwargs):
 
 def heat_map_3d(path, fileName, beam, **kwargs):
     """
-    `heat_map_3d` plots the 3D heat map of the power densidty distribution.
+    `heat_map_3d` plots the 3D heat map of the power density distribution.
 
     Parameters
     ----------

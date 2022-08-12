@@ -44,7 +44,7 @@ def run(path, fileName, eta, epsilon, mix, **kwargs):
     y2 : float
         upper bound of the inset image on the x-axis.
     z_lim : float
-        upper intensity limite of the cross-section graph of the power density
+        upper intensity limit of the cross-section graph of the power density
         distribution.
     cross_x : float
         x-coordinate of the cross-section graph of the power density
