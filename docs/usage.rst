@@ -69,11 +69,11 @@ How to use
    known directory. This :term:`pdd` corresponds to a real laser beam used in
    the *laser-assisted bonding process (LAB)*. For more information on the LAB
    process, please refer to the :ref:`Theoretical background <theory-ref-1>`
-   section.
+   section. For this example we will paste the :term:`pdd` in the
+   ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` folder.
 
-   For this example we will paste the :term:`pdd` in the
-   ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` folder. Please bear in mind
-   that the auxiliary graphs and report file will be saved in this location.
+   .. important::
+      The auxiliary graphs and the beam analysis report file will be saved in this location.
 
 
 2. **Start coding**
@@ -92,7 +92,7 @@ How to use
       fileName = 'lab_beam.xls'
 
    
-   We can now move on set a few user-defined values.
+   We can now move on and set a few user-defined values.
 
 
 3. **Set the user-defined values**
@@ -168,14 +168,14 @@ How to use
          format. See step :ref:`6 <usage-step-6>` for how to customize it
 
 
-   The file ``example - histogram.png`` is created and saved in the
+   The file ``lab_beam - histogram.png`` is created and saved in the
    ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. This is a good chance to check if the number of normal mixtures used in the normal fit (variable ``mix`` defined in line 10) is appropriate.
 
    .. figure:: images/example_histogram_1.png
       :scale: 40 %
-      :alt: Histogram plot for the pdd lab_beam.xls
+      :alt: Default histogram plot for the pdd lab_beam.xls using mix=1
 
-      Histogram plot for the pdd lab_beam.xls
+      Default histogram plot for the pdd lab_beam.xls using mix=1
 
 
    We see that a single Gaussian distribution is not sufficient to fit the data at hand, which results in an unreliable laser beam characterization. Therefore, go back to line 10, change it so that two Gaussian distributions are used instead, and run the code again.
@@ -195,9 +195,9 @@ How to use
 
    .. figure:: images/example_histogram_2.png
       :scale: 40 %
-      :alt: Modified histogram plot for the pdd lab_beam.xls
+      :alt: Default histogram plot for the pdd lab_beam.xls using mix=2
 
-      Modified histogram plot for the pdd lab_beam.xls
+      Default histogram plot for the pdd lab_beam.xls using mix=2
 
    
    That is much better, right? For a reliable laser beam characterization do make sure that the normal fit is appropriate.
@@ -231,9 +231,9 @@ How to use
 
    .. figure:: images/example_histogram_3.png
       :scale: 40 %
-      :alt: Customized histogram plot for the pdd lab_beam.xls
+      :alt: Customized histogram plot for the pdd lab_beam.xls using mix=2
 
-      Customized histogram plot for the pdd lab_beam.xls
+      Customized histogram plot for the pdd lab_beam.xls using mix=2
 
    
    See the difference? The number of histogram bins ``n_bins`` was increased from ``256`` to ``512``, the ``zoom`` of the inset image was increased from ``2`` to ``2.5``, and the top delimiter ``y2`` of the inset image was decreased from ``5000`` to ``2500``. The bottom delimiter ``y1``, the left delimiter ``x1``, and the right delimiter ``x2`` were not changed.
@@ -254,13 +254,13 @@ How to use
       :noindex:
 
    
-   The file ``example - 2d heat map.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. As with the histogram plot, if the ``kwargs`` are omitted the 2D heat map is plotted using the default format.
+   The file ``lab_beam - 2d heat map.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. As with the histogram plot, if the ``kwargs`` are omitted the 2D heat map is plotted using the default format.
 
    .. figure:: images/example_2d_heatmap_1.png
       :scale: 40 %
-      :alt: 2D heat map plot for the pdd lab_beam.xls
+      :alt: Default 2D heat map plot for the pdd lab_beam.xls
 
-      2D heat map plot for the pdd lab_beam.xls
+      Default 2D heat map plot for the pdd lab_beam.xls
 
    
    It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 27, add the following lines, and execute the code.
@@ -280,9 +280,9 @@ How to use
 
    .. figure:: images/example_2d_heatmap_2.png
       :scale: 40 %
-      :alt: Modified 2D heat map plot for the pdd lab_beam.xls
+      :alt: Customized 2D heat map plot for the pdd lab_beam.xls
 
-      Modified 2D heat map plot for the pdd lab_beam.xls
+      Customized 2D heat map plot for the pdd lab_beam.xls
 
 
    See the difference? The intensity axis was set to ``2500``, and the cross-section point was set to ``20 mm`` on both x- and y-axis.  
@@ -305,13 +305,13 @@ How to use
       :noindex:
 
 
-   The file ``example - 3d heat map.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. As with the 2D heat map plot, if the ``kwargs`` are omitted the 3D heat map is plotted using the default format.
+   The file ``lab_beam - 3d heat map.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. As with the 2D heat map plot, if the ``kwargs`` are omitted the 3D heat map is plotted using the default format.
 
    .. figure:: images/example_3d_heatmap_1.png
          :scale: 40 %
-         :alt: 3D heat map plot for the pdd lab_beam.xls
+         :alt: Default 3D heat map plot for the pdd lab_beam.xls
 
-         3D heat map plot for the pdd lab_beam.xls
+         Default 3D heat map plot for the pdd lab_beam.xls
 
 
    It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 35, add the following lines, and execute the code.
@@ -331,9 +331,9 @@ How to use
 
    .. figure:: images/example_3d_heatmap_2.png
          :scale: 40 %
-         :alt: Modified 3D heat map plot for the pdd lab_beam.xls
+         :alt: Customized 3D heat map plot for the pdd lab_beam.xls
 
-         Modified 3D heat map plot for the pdd lab_beam.xls
+         Customized 3D heat map plot for the pdd lab_beam.xls
 
    See the difference? The elevation angle was set to ``30 deg``, the azimuthal angle was set to ``45 deg``, and the distance was set to ``15``.
 
@@ -355,14 +355,14 @@ How to use
       :noindex:
 
 
-   The file ``example - energy curve.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. Unlike the other auxiliary graphs, there are no customization for the normalized energy curve plot.
+   The file ``lab_beam - energy curve.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. Unlike the other auxiliary graphs, there are no customization for the normalized energy curve plot.
 
 
    .. figure:: images/example_energy_curve.png
          :scale: 40 %
-         :alt: Normalized energy curve plot for the pdd lab_beam.xls
+         :alt: Default normalized energy curve plot for the pdd lab_beam.xls
 
-         Normalized energy curve plot for the pdd lab_beam.xls
+         Default normalized energy curve plot for the pdd lab_beam.xls
 
 
 10. **Generate the report file**
