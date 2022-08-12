@@ -18,12 +18,6 @@ BeamProfiler
 according to ISO 13694, ISO 11145, and other non-ISO definitions commonly used
 in the industry.
 
-If you are new to the field of laser beam analysis or want to study it further
-check out the :doc:`theory` for a list of reference papers and standards. For
-more information on how to install **BeamProfiler**, go to the
-:doc:`installation` page. If you need examples of how to use **BeamProfiler**
-refer to the :doc:`usage` page.
-
 
 * Free software: GNU General Public License v3
 * Documentation: https://beamprofiler.readthedocs.io.
@@ -53,46 +47,39 @@ Auxiliary graphs
 
 Below are some illustrations:
 
-.. figure:: images/iso.png
-   :scale: 60 %
-   :alt: Report of ISO parameters
+.. figure:: images/example_report.png
+   :scale: 40 %
+   :alt: Beam analysis report of ISO parameters
  
-   Report format of ISO parameters
+   Beam analysis report of ISO and non-ISO parameters
    
 
-.. figure:: images/non-iso.png
-   :scale: 60 %
-   :alt: Report of non-ISO parameters
- 
-   Report format of non-ISO parameters
-
-
-.. figure:: images/histogram.png
-   :scale: 30 %
+.. figure:: images/example_histogram_2.png
+   :scale: 40 %
    :alt: Histogram
  
    Histogram  
 
 
-.. figure:: images/2d_heat_map.png
-   :scale: 30 %
+.. figure:: images/example_2d_heatmap_1.png
+   :scale: 40 %
    :alt: 2D heat map
  
    2D heat map
  
    
-.. figure:: images/3d_heat_map.png
-   :scale: 30 %
+.. figure:: images/example_3d_heatmap_1.png
+   :scale: 40 %
    :alt: 3D heat map
  
    3D heat map  
 
  
-.. figure:: images/energy_curve.png
-   :scale: 30 %
-   :alt: Energy curve
+.. figure:: images/example_energy_curve.png
+   :scale: 40 %
+   :alt: Normalized energy curve
  
-   Energy curve
+   Normalized energy curve
 
 
 Credits

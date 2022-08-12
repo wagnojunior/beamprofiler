@@ -1,12 +1,50 @@
+.. default-role:: math
+
 ======================
 Theoretical background
 ======================
 
-On this page you will find a list of relevant references that will get you
+Introduction
+------------
+
+.. note::
+    This section covers the very minimum concepts one should understand in
+    order to run **BeamProfiler**. For more detailed information check out the
+    :ref:`References <theory:references>`, in special reference
+    :ref:`1 <theory-ref-1>`.
+
+Several ISO and non-ISO characterizing parameters must be associated with a
+user-defined value called *clip-level* (denoted by the greek letter :term:`eta` 
+`\eta`). The *clip-level* defines a fraction of the characterizing parameter
+associated with it, and it is mathematically defined as (`0 \leq \eta < 1`).
+For instance, if the maximum power density (`E_{max}`) of a laser beam is
+`1000 ADC/px`, then the clip-level power density `E_{\eta CL}` considering
+`\eta = 0.8` is `800 ADC/px`.
+
+Similarly, some ISO and non-ISO characterizing parameters must be associated
+with two clip-levels, namely the *upper clip-level* (denoted by the greek
+letter :term:`eta` `\eta`) and the *lower clip-level* (denoted by the greek
+letter :term:`epsilon` `\epsilon`). The *upper clip-level* and the *lower
+clip-level* are mathematically expressed as `0 \leq \epsilon < \eta < 1`. The
+values of :term:`eta` and :term:`epsilon` largely depend on the quality 
+requirements of  the process that uses the laser beam.
+
+Lastly, a few ISO and non-ISO characterizing parameters depend on a normal
+fit of the the histogram associated with the :term:`pdd` of the laser beam.
+Often times a single Gaussian distribution does not provide a proper fit,
+therefore **BeamProfiler** offers the option to use a mixture of up to three
+Gaussian distributions. You can set the variable ``mix`` to define the number
+of normal mixtures used in the normal fit.
+
+
+References
+----------
+
+On this section you will find a list of relevant references that will get you
 started on the theory of laser beam analysis and deepen your understanding on
 the field.
 
-.. _Charac:
+.. _theory-ref-1:
 
 1. **Characterization of laser beams: theory and application in laser-assisted bonding process**
     
