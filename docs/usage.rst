@@ -57,19 +57,15 @@ the standard layout, you have two options:
 How to use
 ----------
 
-.. note::
-   To follow the instructions you will need access to the **BeamProfiler**
-   repository. If you are not sure how to access it, check out the 
-   :ref:`Installation <installation:from sources>` section.
 
-1. **Get the example** :term:`pdd`
-
-   Head over to the **BeamProfiler** repository, copy the :term:`pdd`
-   ``lab_beam.xls`` located in the ``resources`` folder, and paste it in a
-   known directory. This :term:`pdd` corresponds to a real laser beam used in
-   the *laser-assisted bonding process (LAB)*. For more information on the LAB
-   process, please refer to the :ref:`Theoretical background <theory-ref-1>`
-   section. For this example we will paste the :term:`pdd` in the
+1. **Download the example pdd**
+   
+   :download:`Download <../resources/lab_beam.xls>` the example :term:`pdd` file
+   ``lab_beam.xls`` and save it in a known directory. This :term:`pdd`
+   corresponds to a real laser beam used in the *laser-assisted bonding process
+   (LAB)*. For more information on the LAB process, please refer to the
+   :ref:`Theoretical background <theory-ref-1>` section. For this example we
+   will paste the :term:`pdd` in the
    ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` folder.
 
    .. important::
