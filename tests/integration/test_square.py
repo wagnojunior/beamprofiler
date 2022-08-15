@@ -30,126 +30,126 @@ class TestSquare(unittest.TestCase):
     def test_totalPower(self):
         """`test_totalPower` tests the total power."""
 
-        self.assertEqual(self.beam.totalPower, 10201000)
+        self.assertAlmostEqual(self.beam.totalPower, 10201000)
 
     def test_power_eta(self):
         """`test_power_eta` tests the clip-level power."""
 
-        self.assertEqual(self.beam.power_eta, 10201000.0)
+        self.assertAlmostEqual(self.beam.power_eta, 10201000.0)
 
     def test_maxPowerDensity(self):
         """`test_maxPowerDensity` tests the maximum power density."""
 
-        self.assertEqual(self.beam.maxPowerDensity, 1000)
+        self.assertAlmostEqual(self.beam.maxPowerDensity, 1000)
 
     def test_powerDensity_eta(self):
         """`test_powerDensity_eta` tests the clip-level power density."""
 
-        self.assertEqual(self.beam.powerDensity_eta, 800.0)
+        self.assertAlmostEqual(self.beam.powerDensity_eta, 800.0)
 
     def test_averagePowerDensity_eta(self):
         """`test_averagePowerDensity_eta` tests the clip-level average power
         density."""
 
-        self.assertEqual(self.beam.averagePowerDensity_eta, 1000)
+        self.assertAlmostEqual(self.beam.averagePowerDensity_eta, 1000)
 
     def test_centerX(self):
         """`test_centerX` tests the center coordinate on the x-axis."""
 
-        self.assertEqual(self.beam.centerX, 128)
+        self.assertAlmostEqual(self.beam.centerX, 128)
 
     def test_centerY(self):
         """`test_centerY` tests the center coordinate on the y-axis."""
 
-        self.assertEqual(self.beam.centerY, 128)
+        self.assertAlmostEqual(self.beam.centerY, 128)
 
     def test_widthX(self):
         """`test_widthX` tests the beam width about the x-axis."""
 
-        self.assertEqual(self.beam.widthX, 116.619)
+        self.assertAlmostEqual(self.beam.widthX, 116.619)
 
     def test_widthY(self):
         """`test_widthY` tests the beam width about the y-axis."""
 
-        self.assertEqual(self.beam.widthY, 116.619)
+        self.assertAlmostEqual(self.beam.widthY, 116.619)
 
     def test_irradiationArea_epsilon(self):
         """`test_irradiationArea_epsilon` tests the lower clip-level
         irradiation area."""
 
-        self.assertEqual(self.beam.irradiationArea_epsilon, 10201)
+        self.assertAlmostEqual(self.beam.irradiationArea_epsilon, 10201)
 
     def test_irradiationArea_eta(self):
         """`test_irradiationArea_eta` tests the upper clip-level irradiation
         area."""
 
-        self.assertEqual(self.beam.irradiationArea_eta, 10201)
+        self.assertAlmostEqual(self.beam.irradiationArea_eta, 10201)
 
     def test_aspectRatio(self):
         """`test_aspectRatio` tests the beam aspect ratio."""
 
-        self.assertEqual(self.beam.aspectRatio, 1.0)
+        self.assertAlmostEqual(self.beam.aspectRatio, 1.0)
 
     def test_fractionalPower_eta(self):
         """`test_fractionalPower_eta` tests the clip-level fractional power."""
 
-        self.assertEqual(self.beam.fractionalPower_eta, 1.0)
+        self.assertAlmostEqual(self.beam.fractionalPower_eta, 1.0)
 
     def test_flatnessFactor_eta(self):
         """`test_flatnessFactor_eta` tests the clip-level flatness factor."""
 
-        self.assertEqual(self.beam.flatnessFactor_eta, 1.0)
+        self.assertAlmostEqual(self.beam.flatnessFactor_eta, 1.0)
 
     def test_beamUniformity_eta(self):
         """`test_beamUniformity_eta` tests the clip-level beam uniformity."""
 
-        self.assertEqual(self.beam.beamUniformity_eta, 0.0)
+        self.assertAlmostEqual(self.beam.beamUniformity_eta, 0.0)
 
     def test_plateauUniformity_eta(self):
         """`test_plateauUniformity_eta` tests the clip-level plateau
         uniformity."""
 
-        self.assertEqual(self.beam.plateauUniformity_eta, 0.0)
+        self.assertAlmostEqual(self.beam.plateauUniformity_eta, 0.0)
 
     def test_edgeSteepness_eta(self):
         """`test_edgeSteepness_eta` tests the clip-level edge steepness."""
 
-        self.assertEqual(self.beam.edgeSteepness_eta, 0.0)
+        self.assertAlmostEqual(self.beam.edgeSteepness_eta, 0.0)
 
     def test_widthX_eta(self):
         """`test_widthX_eta` tests the clip-level beam width about the
         x-axis."""
 
-        self.assertEqual(self.beam.widthX_eta, 101.0)
+        self.assertAlmostEqual(self.beam.widthX_eta, 101.0)
 
     def test_widthY_eta(self):
         """`test_widthY_eta` tests the clip-level beam width about the
         y-axis."""
 
-        self.assertEqual(self.beam.widthY_eta, 101.0)
+        self.assertAlmostEqual(self.beam.widthY_eta, 101.0)
 
     def test_edgeX_epsilon_eta(self):
         """`test_edgeX_epsilon_eta` tests the clip-level edge width about
         the x-axis."""
 
-        self.assertEqual(self.beam.edgeX_epsilon_eta, 0.0)
+        self.assertAlmostEqual(self.beam.edgeX_epsilon_eta, 0.0)
 
     def test_edgeY_epsilon_eta(self):
         """`test_edgeY_epsilon_eta` tests the clip-level edge width about
         the y-axis."""
 
-        self.assertEqual(self.beam.edgeY_epsilon_eta, 0.0)
+        self.assertAlmostEqual(self.beam.edgeY_epsilon_eta, 0.0)
 
     def test_modPlateauUniformity_eta(self):
         """`ModPlateauUniformity_eta` tests the modified clip-level plateau
         uniformity."""
 
-        self.assertEqual(self.beam.modPlateauUniformity_eta, 0.0)
+        self.assertAlmostEqual(self.beam.modPlateauUniformity_eta, 0.0)
 
     def test_topHatFactor(self):
         """`test_topHatFactor` tests the top-hat factor."""
 
-        self.assertEqual(self.beam.topHatFactor, 1.0)
+        self.assertAlmostEqual(self.beam.topHatFactor, 1.0)
 
 
 if __name__ == '__main__':
