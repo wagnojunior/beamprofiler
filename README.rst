@@ -7,7 +7,7 @@ BeamProfiler
         :target: https://pypi.python.org/pypi/beamprofiler
 
 .. image:: https://img.shields.io/travis/wagnojunior/beamprofiler.svg
-        :target: https://app.travis-ci.com/wagnojunior/beamprofiler.svg?branch=main
+        :target: https://app.travis-ci.com/github/wagnojunior/beamprofiler
 
 .. image:: https://readthedocs.org/projects/beamprofiler/badge/?version=latest
         :target: https://beamprofiler.readthedocs.io/en/latest/?version=latest
