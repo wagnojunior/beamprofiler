@@ -13,10 +13,9 @@ __version__ = '1.0.0'
 # =============================================================================
 # Imports
 # =============================================================================
-from beamprofiler import analysis
 from beamprofiler.beam import Beam
 from beamprofiler import iso
 from beamprofiler import niso
 from beamprofiler import utils
 
-__all__ = ['analysis', 'Beam', 'iso', 'niso', 'utils']
+__all__ = ['Beam', 'iso', 'niso', 'utils']
