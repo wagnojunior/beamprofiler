@@ -95,7 +95,7 @@ How to use
 
    As introduced in the :ref:`Theoretical background <theory:introduction>`
    section, there are three user-defined values that must be set in order to run
-   **BeamProfiler**. For this example we will set ``eta = 0.8``, ``epsilon = 0.1``, and ``mix = 1`` in ``example.py`` as follows:
+   **BeamProfiler**. For this example we will set ``eta = 0.8``, ``epsilon = 0.2``, and ``mix = 1`` in ``example.py`` as follows:
 
    .. code-block:: python
       :lineno-start: 7
