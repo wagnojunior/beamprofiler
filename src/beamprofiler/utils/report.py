@@ -31,7 +31,7 @@ def write(path, fileName, beam):
 
     # Name of the input and output file
     fileName = os.path.splitext(fileName)[0]
-    outFile = 'Beam Analysis - ' + os.path.splitext(fileName)[0] + '.xlsx'
+    outFile = 'Beam Analysis - ' + fileName + '.xlsx'
 
     # Create a new Excel file
     wb = xlsxwriter.Workbook(os.path.join(path, outFile))
