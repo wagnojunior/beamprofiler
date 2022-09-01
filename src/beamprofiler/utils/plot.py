@@ -27,7 +27,7 @@ def general_plot(proj=None):
     Parameters
     ----------
     proj : str, optional
-        Axes projection. The default is None.
+        axes projection. The default is None.
 
     Returns
     -------
