@@ -64,7 +64,7 @@ def save(path, fileName, suffix, fmt):
     suffix : str
         suffix added to the graph's name.
     fmt : str
-        file format (i.e.: .png, .svg).
+        image file format.
 
     Returns
     -------
@@ -105,6 +105,8 @@ def histogram(path, fileName, beam, **kwargs):
         lower bound of the inset image on the y-axis. The default is 0.
     y2 : float
         upper bound of the inset image on the x-axis. The default is 5000.
+    fmt : str
+        image file format.
 
     Returns
     -------
@@ -186,6 +188,8 @@ def heat_map_2d(path, fileName, beam, **kwargs):
         y-coordinate of the cross-section graph of the power density
         distribution. The default is the calculated beam center about the
         y-axis.
+    fmt : str
+        image file format.
 
     Returns
     -------
@@ -286,6 +290,8 @@ def heat_map_3d(path, fileName, beam, **kwargs):
         azimuthal viewing angle. The default is 135.
     dist : float
         distance from the plot. The default is 11.
+    fmt : str
+        image file format.
 
     Returns
     -------
@@ -335,6 +341,11 @@ def norm_energy_curve(path, fileName, beam, **kwargs):
         name of the power density distribution file.
     beam : Beam
         instance of type `Beam`.
+
+    Other Parameters
+    ----------------
+    fmt : str
+        image file format.
 
     Returns
     -------
