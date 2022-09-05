@@ -125,7 +125,8 @@ How to use
    .. autofunction:: beamprofiler.Beam.__init__
 
    
-   The variable ``myBeam`` is created and all the relevant data related to the beam analysis are saved in it, including the following:
+   The variable ``myBeam`` is created and all the relevant data related to the beam analysis are saved in it, including the following characterizing
+   parameters:
 
    .. _usage-step-4-iso:
 
@@ -141,8 +142,7 @@ How to use
       clip-level beam width, clip-level edge width, modified plateau uniformity,
       top-hat factor.
 
-   .. note::
-      The auxiliary graphs are generated based on the data stored in the variable ``myBeam``.
+   On the next steps we will generate the auxiliary graphs.
 
 
 5. **Generate the histogram plot**
@@ -212,7 +212,7 @@ How to use
    .. code-block:: python
       :lineno-start: 15
       :caption: example.py
-      :emphasize-lines: 2-9
+      :emphasize-lines: 2-10
 
       # Generate the histogram plot
       kwargs = {
@@ -221,7 +221,8 @@ How to use
          'x1': 1600,
          'x2': 2000,
          'y1': 0,
-         'y2': 2500
+         'y2': 2500,
+         'fmt': '.png'
       }
       beamprofiler.utils.plot.histogram(path, fileName, myBeam, **kwargs)
 
@@ -232,7 +233,7 @@ How to use
       Customized histogram plot for the pdd lab_beam.xls using mix=2
 
    
-   See the difference? The number of histogram bins ``n_bins`` was increased from ``256`` to ``512``, the ``zoom`` of the inset image was increased from ``2`` to ``2.5``, and the top delimiter ``y2`` of the inset image was decreased from ``5000`` to ``2500``. The bottom delimiter ``y1``, the left delimiter ``x1``, and the right delimiter ``x2`` were not changed.
+   See the difference? The number of histogram bins ``n_bins`` was increased from ``256`` to ``512``, the ``zoom`` of the inset image was increased from ``2`` to ``2.5``, and the top delimiter ``y2`` of the inset image was decreased from ``5000`` to ``2500``. The bottom delimiter ``y1``, the left delimiter ``x1``, the right delimiter ``x2``, and the image file format were not changed.
 
 
 7. **Generate the 2D heat map plot**
@@ -241,7 +242,7 @@ How to use
    ``beamprofiler.utils.plot.heat_map_2d()`` is called.
 
    .. code-block:: python
-      :lineno-start: 26
+      :lineno-start: 27
 
       # Generate the 2D heat map plot
       beamprofiler.utils.plot.heat_map_2d(path, fileName, myBeam)
@@ -259,17 +260,18 @@ How to use
       Default 2D heat map plot for the pdd lab_beam.xls
 
    
-   It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 27, add the following lines, and execute the code.
+   It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 28, add the following lines, and execute the code.
 
    .. code-block:: python
-      :lineno-start: 26
-      :emphasize-lines: 2-6
+      :lineno-start: 27
+      :emphasize-lines: 2-7
 
       # Generate the 2D heat map plot
       kwargs = {
          'z_lim': 2500,
          'cross_x': 20,
-         'cross_y': 20
+         'cross_y': 20,
+         'fmt': '.png'
       }
       beamprofiler.utils.plot.heat_map_2d(path, fileName, myBeam, **kwargs)
 
@@ -281,7 +283,7 @@ How to use
       Customized 2D heat map plot for the pdd lab_beam.xls
 
 
-   See the difference? The intensity axis was set to ``2500``, and the cross-section point was set to ``20 mm`` on both x- and y-axis.  
+   See the difference? The intensity axis was set to ``2500``, and the cross-section point was set to ``20 mm`` on both x- and y-axis. The image file format was not changed.
       
    .. hint::
       Modify the default ``kwargs`` to see the 2D heat map cross-section in a location other than the beam center.
@@ -292,7 +294,7 @@ How to use
    To generate the 3D heat map plot add the following lines to ``example.py`` and execute the code. The 3D heat map plot is saved when the function ``beamprofiler.utils.plot.heat_map_3d()`` is called.
 
    .. code-block:: python
-      :lineno-start: 34
+      :lineno-start: 36
 
       # Generate the 3D heat map plot
       beamprofiler.utils.plot.heat_map_3d(path, fileName, myBeam)
@@ -313,14 +315,15 @@ How to use
    It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 35, add the following lines, and execute the code.
 
    .. code-block:: python
-      :lineno-start: 35
-      :emphasize-lines: 2-6
+      :lineno-start: 36
+      :emphasize-lines: 2-7
 
       # Generate the 3D heat map plot
       kwargs = {
          'elev': 30,
          'azim': 45,
-         'dist': 15
+         'dist': 15,
+         'fmt': '.png'
       }
       beamprofiler.utils.plot.heat_map_3d(path, fileName, myBeam, **kwargs)
 
@@ -331,7 +334,7 @@ How to use
 
          Customized 3D heat map plot for the pdd lab_beam.xls
 
-   See the difference? The elevation angle was set to ``30 deg``, the azimuthal angle was set to ``45 deg``, and the distance was set to ``15``.
+   See the difference? The elevation angle was set to ``30 deg``, the azimuthal angle was set to ``45 deg``, and the distance was set to ``15``. The image file format was not changed.
 
    .. hint::
       Modify the default ``kwargs`` to see the 3D heat map from different angles.
@@ -342,7 +345,7 @@ How to use
    To generate the normalized energy curve plot add the following lines to ``example.py`` and execute the code. The normalized energy curve plot is saved when the function ``beamprofiler.utils.plot.norm_energy_curve()`` is called.
 
    .. code-block:: python
-      :lineno-start: 42
+      :lineno-start: 45
 
       # Generate the normalized energy curve plot
       beamprofiler.utils.plot.norm_energy_curve(path, fileName, myBeam)
@@ -351,7 +354,7 @@ How to use
       :noindex:
 
 
-   The file ``lab_beam - energy curve.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. Unlike the other auxiliary graphs, there are no customization for the normalized energy curve plot.
+   The file ``lab_beam - energy curve.png`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory.
 
 
    .. figure:: images/example_energy_curve.png
@@ -360,6 +363,22 @@ How to use
 
          Default normalized energy curve plot for the pdd lab_beam.xls
 
+   It is possible to customize the normalized energy curve plot by specifying the ``kwargs`` values. Go back to line 42, add the following lines, and execute the code.
+
+   .. code-block:: python
+      :lineno-start: 45
+      :emphasize-lines: 2-3
+
+      # Generate the 3D heat map plot
+      kwargs = {
+         'fmt': '.svg'
+      }
+      beamprofiler.utils.plot.norm_energy_curve(path, fileName, myBeam, **kwargs)
+
+   See the difference? The image file format was changed from ``.pgn`` to ``.svg``.
+
+   .. hint::
+      Modify the default ``kwargs`` to save the auxiliary graphs in another file format.
 
 10. **Generate the report file**
     
@@ -376,6 +395,10 @@ How to use
 
 
    The file ``Beam Analysis - lab_beam.xlsx`` is created and saved in the ``C:\Users\wagnojunior.ab\Desktop\Tutorial\pdd`` directory. It includes all the :ref:`ISO <usage-step-4-iso>` and :ref:`non-ISO <usage-step-4-noniso>` characterizing parameters listed in step 4, and the auxiliary graphs from steps 5–9.
+
+   .. warning::
+         Only the auxiliary graphs saved in the ``.png`` format are included in the report file.
+
 
    .. figure:: images/example_report.png
          :scale: 40 %
@@ -411,7 +434,8 @@ How to use
           'x1': 1600,
           'x2': 2000,
           'y1': 0,
-          'y2': 2500
+          'y2': 2500,
+          'fmt': '.png'
       }
       beamprofiler.utils.plot.histogram(path, fileName, myBeam, **kwargs)
 
@@ -419,7 +443,8 @@ How to use
       kwargs = {
           'z_lim': 2500,
           'cross_x': 20,
-          'cross_y': 20
+          'cross_y': 20,
+          'fmt': '.png'
       }
       beamprofiler.utils.plot.heat_map_2d(path, fileName, myBeam, **kwargs)
 
@@ -427,11 +452,15 @@ How to use
       kwargs = {
           'elev': 30,
           'azim': 45,
-          'dist': 15
+          'dist': 15,
+          'fmt': '.png'
       }
       beamprofiler.utils.plot.heat_map_3d(path, fileName, myBeam, **kwargs)
 
       # Generate the normalized energy curve plot
+      kwargs = {
+          'fmt': '.svg'
+      }
       beamprofiler.utils.plot.norm_energy_curve(path, fileName, myBeam)
 
       # Generate the report file
