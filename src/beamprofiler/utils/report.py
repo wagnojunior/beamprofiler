@@ -179,9 +179,14 @@ def write(path, fileName, beam):
                    'Clip-level: ' + str(beam.eta*100) + '%. Equals 0 for a '
                    'perfect vertical edge'])
 
-    image(ws, 'E1', os.path.join(path, fileName + ' - histogram.png'))
-    image(ws, 'E17', os.path.join(path, fileName + ' - 2d heat map.png'))
-    image(ws, 'J17', os.path.join(path, fileName + ' - 3d heat map.png'))
+    try:
+        image(ws, 'E1', os.path.join(path, fileName + ' - histogram.png'))
+        image(ws, 'E17', os.path.join(path, fileName + ' - 2d heat map.png'))
+        image(ws, 'J17', os.path.join(path, fileName + ' - 3d heat map.png'))
+
+    except xlsxwriter.exceptions.UnsupportedImageFormat:
+        print("Unknown or unsupported image file format. Image will not be "
+              "included in the summary file.")
 
     # =========================================================================
     # Create and populate the non ISO sheet

@@ -27,7 +27,7 @@ def general_plot(proj=None):
     Parameters
     ----------
     proj : str, optional
-        Axes projection. The default is None.
+        axes projection. The default is None.
 
     Returns
     -------
@@ -48,6 +48,33 @@ def general_plot(proj=None):
     ax = fig.add_subplot(1, 1, 1, projection=proj)
 
     return fig, ax
+
+
+def save(path, fileName, suffix, fmt):
+    """
+    `save` saves a pyplot graph in the designated path with the designated
+    name and format.
+
+    Parameters
+    ----------
+    path : std
+        path to where the graph will be saved.
+    fileName : str
+        name of the power density distribution file.
+    suffix : str
+        suffix added to the graph's name.
+    fmt : str
+        image file format.
+
+    Returns
+    -------
+    None.
+
+    """
+
+    fileName = os.path.splitext(fileName)[0]
+    plt.savefig(os.path.join(path, fileName + suffix + fmt),
+                bbox_inches='tight', dpi=300)
 
 
 def histogram(path, fileName, beam, **kwargs):
@@ -78,6 +105,8 @@ def histogram(path, fileName, beam, **kwargs):
         lower bound of the inset image on the y-axis. The default is 0.
     y2 : float
         upper bound of the inset image on the x-axis. The default is 5000.
+    fmt : str
+        image file format.
 
     Returns
     -------
@@ -92,6 +121,7 @@ def histogram(path, fileName, beam, **kwargs):
     x2 = kwargs.pop('x2', 2000)
     y1 = kwargs.pop('y1', 0)
     y2 = kwargs.pop('y2', 5000)
+    fmt = kwargs.pop('fmt', '.png')
 
     # Get the figure and axes objects
     fig, ax = general_plot()
@@ -128,9 +158,7 @@ def histogram(path, fileName, beam, **kwargs):
     ax.plot(pdf_x, pdf_y, 'k--', linewidth=0.35)
 
     # Save and show
-    fileName = os.path.splitext(fileName)[0]
-    plt.savefig(os.path.join(path, fileName + ' - histogram.png'),
-                bbox_inches='tight', dpi=300)
+    save(path, fileName, ' - histogram', fmt)
     plt.show()
 
 
@@ -160,6 +188,8 @@ def heat_map_2d(path, fileName, beam, **kwargs):
         y-coordinate of the cross-section graph of the power density
         distribution. The default is the calculated beam center about the
         y-axis.
+    fmt : str
+        image file format.
 
     Returns
     -------
@@ -171,6 +201,7 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     z_lim = kwargs.pop('z_lim', -1)
     cross_x = kwargs.pop('cross_x', beam.centerX * beam.xResolution)
     cross_y = kwargs.pop('cross_y', beam.centerY * beam.yResolution)
+    fmt = kwargs.pop('fmt', '.png')
 
     # Get the figure and axes objects
     fig, main_ax = general_plot()
@@ -234,9 +265,7 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     top_ax.plot(x, slice_x, color='k', linestyle="-", lw=0.5)
 
     # Save and show
-    fileName = os.path.splitext(fileName)[0]
-    plt.savefig(os.path.join(path, fileName + ' - 2d heat map.png'),
-                bbox_inches='tight', dpi=300)
+    save(path, fileName, ' - 2d heat map', fmt)
     plt.show()
 
 
@@ -261,6 +290,8 @@ def heat_map_3d(path, fileName, beam, **kwargs):
         azimuthal viewing angle. The default is 135.
     dist : float
         distance from the plot. The default is 11.
+    fmt : str
+        image file format.
 
     Returns
     -------
@@ -272,6 +303,7 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     elev = kwargs.pop('elev', 50)
     azim = kwargs.pop('azim', 135)
     dist = kwargs.pop('dist', 11)
+    fmt = kwargs.pop('fmt', '.png')
 
     fig, ax = general_plot(proj='3d')
 
@@ -292,13 +324,11 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     ax.set_zlabel("Intensity", labelpad=5)
 
     # Save and show
-    fileName = os.path.splitext(fileName)[0]
-    plt.savefig(os.path.join(path, fileName + ' - 3d heat map.png'),
-                bbox_inches='tight', dpi=300)
+    save(path, fileName, ' - 3d heat map', fmt)
     plt.show()
 
 
-def norm_energy_curve(path, fileName, beam):
+def norm_energy_curve(path, fileName, beam, **kwargs):
     """
     `norm_energy_curve` plots the normalized energy curve of the power density
     distribution.
@@ -312,11 +342,19 @@ def norm_energy_curve(path, fileName, beam):
     beam : Beam
         instance of type `Beam`.
 
+    Other Parameters
+    ----------------
+    fmt : str
+        image file format.
+
     Returns
     -------
     None.
 
     """
+
+    # Check if any default value has been redefined in kwargs
+    fmt = kwargs.pop('fmt', '.png')
 
     # Get the figure and axes objects
     fig, ax = general_plot()
@@ -368,33 +406,5 @@ def norm_energy_curve(path, fileName, beam):
     ax.legend(handles=[blue_patch, gray_patch], loc='lower left')
 
     # Save and show
-    fileName = os.path.splitext(fileName)[0]
-    plt.savefig(os.path.join(path, fileName + ' - energy curve.png'),
-                bbox_inches='tight', dpi=300)
+    save(path, fileName, ' - energy curve', fmt)
     plt.show()
-
-
-def run(path, fileName, beam, **kwargs):
-    """
-    `run` runs all the auxiliary plots.
-
-    Parameters
-    ----------
-    path : str
-        path where the graphs will be saved.
-    beam : Beam
-        instance of type `Beam`.
-    **kwargs : dict
-        optional keyword arguments. For more information, please see `utils.
-        plot.histogram` and `utils.plot.heat_map`
-
-    Returns
-    -------
-    None.
-
-    """
-
-    histogram(path, fileName, beam, **kwargs)
-    heat_map_2d(path, fileName, beam, **kwargs)
-    heat_map_3d(path, fileName, beam, **kwargs)
-    norm_energy_curve(path, fileName, beam)
