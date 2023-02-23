@@ -202,6 +202,8 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     cross_x = kwargs.pop('cross_x', beam.centerX * beam.xResolution)
     cross_y = kwargs.pop('cross_y', beam.centerY * beam.yResolution)
     fmt = kwargs.pop('fmt', '.png')
+    rect = kwargs.pop('rect', (0, 0))
+    
 
     # Get the figure and axes objects
     fig, main_ax = general_plot()
@@ -237,6 +239,18 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     main_ax.axhline(cross_y, color='k', linestyle="-", lw=0.8)
     main_ax.set_xlabel('x-axis (mm)')
     main_ax.set_ylabel('y-axis (mm)')
+    
+    # Add black rectangle defined by an ancor point (botton-left corner) and
+    # a width and length
+    ancor_x = beam.centerX * beam.xResolution - rect[0]/2
+    ancor_y = beam.centerY * beam.yResolution - rect[1]/2
+    main_ax.add_patch(mpatches.Rectangle(
+        (ancor_x, ancor_y),
+        rect[0],
+        rect[1],
+        linewidth=0.25,
+        edgecolor='k',
+        facecolor='none'))
 
     # Create and configure the right sub ax
     y = np.mgrid[0:dp.get_yWindow(beam.raw_header):beam.yResolution]
