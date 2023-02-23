@@ -240,9 +240,10 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     main_ax.set_xlabel('x-axis (mm)')
     main_ax.set_ylabel('y-axis (mm)')
     
-    # Add black rectangle defined by an ancor point (botton-left corner) and
-    # a width and length
+    # If `rect` was not defined via the kwargs, do not do extra drawings
     if rect != (0, 0):
+        # Add a black rectangle to the 2D heat map. The rectangle is defined by
+        # an ancor point (botton-left corner) and a width and length
         ancor_x = beam.centerX * beam.xResolution - rect[0]/2
         ancor_y = beam.centerY * beam.yResolution - rect[1]/2
         main_ax.add_patch(mpatches.Rectangle(
@@ -252,15 +253,21 @@ def heat_map_2d(path, fileName, beam, **kwargs):
             linewidth=0.25,
             edgecolor='k',
             facecolor='none'))
+        
+        # Add a black line to the top ax
+        top_ax.axvline(ancor_x, color='k', linestyle='-', lw=0.25)
+        top_ax.axvline(ancor_x+rect[0], color='k', linestyle='-', lw=0.25)
+        
+        # Add a black line to the right ax
+        right_ax.axhline(ancor_y, color='k', linestyle='-', lw=0.25)
+        right_ax.axhline(ancor_y+rect[1], color='k', linestyle='-', lw=0.25)
 
     # Create and configure the right sub ax
     y = np.mgrid[0:dp.get_yWindow(beam.raw_header):beam.yResolution]
     slice_y = 0
     try:
         # Data along the y-axis at the x-position defined by cross_x
-        slice_y = (
-            z[:, int(np.around(cross_x/beam.xResolution))]
-        )
+        slice_y = z[:, int(np.around(cross_x/beam.xResolution))]
     except IndexError:
         print("Slice position is outside of the range. Please, check the "
               "slice position.")
@@ -271,9 +278,7 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     slice_x = 0
     try:
         # Data along the x-axis at the y-position defined by cross_y
-        slice_x = (
-            z[int(np.around(cross_y/beam.yResolution)), :]
-        )
+        slice_x = z[int(np.around(cross_y/beam.yResolution)), :]     
     except IndexError:
         print("Slice position is outside of the range. Please, check the "
               "slice position.")
