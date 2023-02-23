@@ -242,15 +242,16 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     
     # Add black rectangle defined by an ancor point (botton-left corner) and
     # a width and length
-    ancor_x = beam.centerX * beam.xResolution - rect[0]/2
-    ancor_y = beam.centerY * beam.yResolution - rect[1]/2
-    main_ax.add_patch(mpatches.Rectangle(
-        (ancor_x, ancor_y),
-        rect[0],
-        rect[1],
-        linewidth=0.25,
-        edgecolor='k',
-        facecolor='none'))
+    if rect != (0, 0):
+        ancor_x = beam.centerX * beam.xResolution - rect[0]/2
+        ancor_y = beam.centerY * beam.yResolution - rect[1]/2
+        main_ax.add_patch(mpatches.Rectangle(
+            (ancor_x, ancor_y),
+            rect[0],
+            rect[1],
+            linewidth=0.25,
+            edgecolor='k',
+            facecolor='none'))
 
     # Create and configure the right sub ax
     y = np.mgrid[0:dp.get_yWindow(beam.raw_header):beam.yResolution]
