@@ -202,9 +202,9 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     cross_x = kwargs.pop('cross_x', beam.centerX * beam.xResolution)
     cross_y = kwargs.pop('cross_y', beam.centerY * beam.yResolution)
     fmt = kwargs.pop('fmt', '.png')
-    rect = kwargs.pop('rect', (0, 0))
+    rect = kwargs.pop('rect', (0, 0, 0, 0))
     
-
+    
     # Get the figure and axes objects
     fig, main_ax = general_plot()
 
@@ -241,11 +241,14 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     main_ax.set_ylabel('y-axis (mm)')
     
     # If `rect` was not defined via the kwargs, do not do extra drawings
-    if rect != (0, 0):
+    if rect != (0, 0, 0, 0):
         # Add a black rectangle to the 2D heat map. The rectangle is defined by
-        # an ancor point (botton-left corner) and a width and length
-        ancor_x = beam.centerX * beam.xResolution - rect[0]/2
-        ancor_y = beam.centerY * beam.yResolution - rect[1]/2
+        # an ancor point (botton-left corner) and a width and length. The ancor
+        # point is set so the center of the rectangles matches the center of
+        # the laser beam, however it can be moved about the x-axis by setting
+        # `rect[2] != 0` and about the y-axis by setting `rect[3] != 0`
+        ancor_x = (beam.centerX * beam.xResolution - rect[0]/2) + rect[2]
+        ancor_y = (beam.centerY * beam.yResolution - rect[1]/2) + rect[3]
         main_ax.add_patch(mpatches.Rectangle(
             (ancor_x, ancor_y),
             rect[0],
