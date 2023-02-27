@@ -264,13 +264,14 @@ How to use
 
    .. code-block:: python
       :lineno-start: 27
-      :emphasize-lines: 2-7
+      :emphasize-lines: 2-8
 
       # Generate the 2D heat map plot
       kwargs = {
          'z_lim': 2500,
          'cross_x': 20,
          'cross_y': 20,
+         'rect': (20, 25, 0, 0),
          'fmt': '.png'
       }
       beamprofiler.utils.plot.heat_map_2d(path, fileName, myBeam, **kwargs)
@@ -283,7 +284,7 @@ How to use
       Customized 2D heat map plot for the pdd lab_beam.xls
 
 
-   See the difference? The intensity axis was set to ``2500``, and the cross-section point was set to ``20 mm`` on both x- and y-axis. The image file format was not changed.
+   See the difference? The intensity axis was set to ``2500``, the cross-section point was set to ``20 mm`` on both x- and y-axis, and a reference rectangle of size ``20×25 mm²`` was added with a zero offset relative to the center of the beam. The image file format was not changed.
       
    .. hint::
       Modify the default ``kwargs`` to see the 2D heat map cross-section in a location other than the beam center.
@@ -294,7 +295,7 @@ How to use
    To generate the 3D heat map plot add the following lines to ``example.py`` and execute the code. The 3D heat map plot is saved when the function ``beamprofiler.utils.plot.heat_map_3d()`` is called.
 
    .. code-block:: python
-      :lineno-start: 36
+      :lineno-start: 37
 
       # Generate the 3D heat map plot
       beamprofiler.utils.plot.heat_map_3d(path, fileName, myBeam)
@@ -315,7 +316,7 @@ How to use
    It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 35, add the following lines, and execute the code.
 
    .. code-block:: python
-      :lineno-start: 36
+      :lineno-start: 37
       :emphasize-lines: 2-7
 
       # Generate the 3D heat map plot
@@ -345,7 +346,7 @@ How to use
    To generate the normalized energy curve plot add the following lines to ``example.py`` and execute the code. The normalized energy curve plot is saved when the function ``beamprofiler.utils.plot.norm_energy_curve()`` is called.
 
    .. code-block:: python
-      :lineno-start: 45
+      :lineno-start: 46
 
       # Generate the normalized energy curve plot
       beamprofiler.utils.plot.norm_energy_curve(path, fileName, myBeam)
@@ -366,7 +367,7 @@ How to use
    It is possible to customize the normalized energy curve plot by specifying the ``kwargs`` values. Go back to line 42, add the following lines, and execute the code.
 
    .. code-block:: python
-      :lineno-start: 45
+      :lineno-start: 46
       :emphasize-lines: 2-3
 
       # Generate the 3D heat map plot
@@ -385,7 +386,7 @@ How to use
     To generate the beam analysis report file add the following lines to ``example.py`` and execute the code. The report is saved when the function ``beamprofiler.utils.report.write()``
 
     .. code-block:: python
-      :lineno-start: 46
+      :lineno-start: 52
 
       # Generate the normalized energy curve plot
       beamprofiler.utils.report.write(path, fileName, myBeam)
@@ -444,6 +445,7 @@ How to use
           'z_lim': 2500,
           'cross_x': 20,
           'cross_y': 20,
+          'rect': (20, 25, 0, 0),
           'fmt': '.png'
       }
       beamprofiler.utils.plot.heat_map_2d(path, fileName, myBeam, **kwargs)
