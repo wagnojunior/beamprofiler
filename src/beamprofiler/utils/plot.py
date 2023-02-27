@@ -188,8 +188,14 @@ def heat_map_2d(path, fileName, beam, **kwargs):
         y-coordinate of the cross-section graph of the power density
         distribution. The default is the calculated beam center about the
         y-axis.
+    rect : tuple
+        size and position of the reference rectangle. The first two elements of
+        the tuple define the width and length of the reference rectangle,
+        repectively. The third and fourth elements of the tuple define the
+        offset of the reference rectangle relative to the center of the beam.
+        (width, length, x_offset, y_offset). Default is (0, 0, 0, 0).
     fmt : str
-        image file format.
+        image file format. The default is `.png`.
 
     Returns
     -------
