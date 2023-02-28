@@ -333,7 +333,7 @@ def heat_map_3d(path, fileName, beam, **kwargs):
 
     # Check if any default value has been redefined in kwargs
     elev = kwargs.pop('elev', 50)
-    azim = kwargs.pop('azim', 135)
+    azim = kwargs.pop('azim', 315)
     dist = kwargs.pop('dist', 11)
     rect = kwargs.pop('rect', (0, 0, 0, 0))
     fmt = kwargs.pop('fmt', '.png')
