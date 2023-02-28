@@ -319,7 +319,7 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     elev : float
         elevation viewing angle. The default is 50.
     azim : float
-        azimuthal viewing angle. The default is 135.
+        azimuthal viewing angle. The default is 315.
     dist : float
         distance from the plot. The default is 11.
     fmt : str
