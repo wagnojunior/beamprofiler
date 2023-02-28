@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.patches as mpatches
 from matplotlib.ticker import (MultipleLocator, FormatStrFormatter)
+import mpl_toolkits.mplot3d.art3d as art3d
 
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
@@ -207,8 +208,8 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     z_lim = kwargs.pop('z_lim', -1)
     cross_x = kwargs.pop('cross_x', beam.centerX * beam.xResolution)
     cross_y = kwargs.pop('cross_y', beam.centerY * beam.yResolution)
-    fmt = kwargs.pop('fmt', '.png')
     rect = kwargs.pop('rect', (0, 0, 0, 0))
+    fmt = kwargs.pop('fmt', '.png')
     
     
     # Get the figure and axes objects
@@ -255,13 +256,15 @@ def heat_map_2d(path, fileName, beam, **kwargs):
         # `rect[2] != 0` and about the y-axis by setting `rect[3] != 0`
         ancor_x = (beam.centerX * beam.xResolution - rect[0]/2) + rect[2]
         ancor_y = (beam.centerY * beam.yResolution - rect[1]/2) + rect[3]
-        main_ax.add_patch(mpatches.Rectangle(
+        
+        p = mpatches.Rectangle(
             (ancor_x, ancor_y),
             rect[0],
             rect[1],
             linewidth=0.25,
             edgecolor='k',
-            facecolor='none'))
+            facecolor='none')
+        main_ax.add_patch(p)
         
         # Add a black line to the top ax
         top_ax.axvline(ancor_x, color='k', linestyle='-', lw=0.25)
@@ -332,6 +335,7 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     elev = kwargs.pop('elev', 50)
     azim = kwargs.pop('azim', 135)
     dist = kwargs.pop('dist', 11)
+    rect = kwargs.pop('rect', (0, 0, 0, 0))
     fmt = kwargs.pop('fmt', '.png')
 
     fig, ax = general_plot(proj='3d')
@@ -346,6 +350,27 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     x_3d, y_3d = np.meshgrid(x, y)
     ax.plot_surface(x_3d, y_3d, beam.raw_data, cmap=cm.gist_rainbow_r,
                     rstride=2, cstride=2, linewidth=2, antialiased=False)
+    
+    
+    # If `rect` was not defined via the kwargs, do not do extra drawings
+    if rect != (0, 0, 0, 0):
+        # Add a black rectangle to the 3D heat map. The rectangle is defined by
+        # an ancor point (botton-left corner) and a width and length. The ancor
+        # point is set so the center of the rectangles matches the center of
+        # the laser beam, however it can be moved about the x-axis by setting
+        # `rect[2] != 0` and about the y-axis by setting `rect[3] != 0`
+        ancor_x = (beam.centerX * beam.xResolution - rect[0]/2) + rect[2]
+        ancor_y = (beam.centerY * beam.yResolution - rect[1]/2) + rect[3]
+        
+        p = mpatches.Rectangle(
+            (ancor_x, ancor_y),
+            rect[0],
+            rect[1],
+            linewidth=0.25,
+            edgecolor='k',
+            facecolor='none')
+        ax.add_patch(p)
+        art3d.pathpatch_2d_to_3d(p, z=beam.averagePowerDensity_eta, zdir="z")
 
     # Set axis labels
     ax.set_xlabel("x-axis (mm)", labelpad=5)
