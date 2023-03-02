@@ -211,6 +211,17 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     rect = kwargs.pop('rect', (0, 0, 0, 0))
     fmt = kwargs.pop('fmt', '.png')
     
+    # Check if the length of rect matches the required value
+    req_len = 4
+    if len(rect) != req_len:
+        print("The kwarg 'rect' is missing %d argument(s), therefore the "
+              "referece rectangle will not be ploted. Please add %d more "
+              "argument(s) and try again." % (
+                  (req_len-len(rect)),
+                  (req_len-len(rect))
+                  )
+              )
+        rect=(0, 0, 0, 0)
     
     # Get the figure and axes objects
     fig, main_ax = general_plot()
@@ -322,6 +333,15 @@ def heat_map_3d(path, fileName, beam, **kwargs):
         azimuthal viewing angle. The default is 315.
     dist : float
         distance from the plot. The default is 11.
+    rect : tuple
+        size and position of the reference rectangle. The first two elements of
+        the tuple define the width and length of the reference rectangle,
+        repectively. The third and fourth elements of the tuple define the
+        offset of the reference rectangle relative to the center of the beam.
+        The fifth element of the tuple defines the offset of the reference
+        rectangle relative to the z-axis.
+        (width, length, x_offset, y_offset, z_offset).
+        Default is (0, 0, 0, 0, 0).
     fmt : str
         image file format.
 
@@ -335,8 +355,20 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     elev = kwargs.pop('elev', 50)
     azim = kwargs.pop('azim', 315)
     dist = kwargs.pop('dist', 11)
-    rect = kwargs.pop('rect', (0, 0, 0, 0))
+    rect = kwargs.pop('rect', (0, 0, 0, 0, 0))
     fmt = kwargs.pop('fmt', '.png')
+    
+    # Check if the length of rect matches the required value
+    req_len = 5
+    if len(rect) != req_len:
+        print("The kwarg 'rect' is missing %d argument(s), therefore the "
+              "referece rectangle will not be ploted. Please add %d more "
+              "argument(s) and try again." % (
+                  (req_len-len(rect)),
+                  (req_len-len(rect))
+                  )
+              )
+        rect=(0, 0, 0, 0, 0)
 
     fig, ax = general_plot(proj='3d')
 
@@ -353,7 +385,7 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     
     
     # If `rect` was not defined via the kwargs, do not do extra drawings
-    if rect != (0, 0, 0, 0):
+    if rect != (0, 0, 0, 0, 0):
         # Add a black rectangle to the 3D heat map. The rectangle is defined by
         # an ancor point (botton-left corner) and a width and length. The ancor
         # point is set so the center of the rectangles matches the center of
@@ -370,7 +402,7 @@ def heat_map_3d(path, fileName, beam, **kwargs):
             edgecolor='k',
             facecolor='none')
         ax.add_patch(p)
-        art3d.pathpatch_2d_to_3d(p, z=beam.averagePowerDensity_eta, zdir="z")
+        art3d.pathpatch_2d_to_3d(p, z=rect[4], zdir="z")
 
     # Set axis labels
     ax.set_xlabel("x-axis (mm)", labelpad=5)
