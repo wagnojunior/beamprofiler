@@ -48,35 +48,35 @@ Auxiliary graphs
 Below are some illustrations:
 
 .. figure:: images/example_report.png
-   :scale: 40 %
+   :width: 100 %
    :alt: Beam analysis report of ISO parameters
  
    Beam analysis report of ISO and non-ISO parameters
    
 
 .. figure:: images/example_histogram_2.png
-   :scale: 40 %
+   :width: 50 %
    :alt: Histogram
  
    Histogram  
 
 
 .. figure:: images/example_2d_heatmap_1.png
-   :scale: 40 %
+   :width: 50 %
    :alt: 2D heat map
  
    2D heat map
  
    
 .. figure:: images/example_3d_heatmap_1.png
-   :scale: 40 %
+   :width: 50 %
    :alt: 3D heat map
  
    3D heat map  
 
  
 .. figure:: images/example_energy_curve.png
-   :scale: 40 %
+   :width: 50 %
    :alt: Normalized energy curve
  
    Normalized energy curve

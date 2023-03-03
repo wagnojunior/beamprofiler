@@ -289,6 +289,12 @@ How to use
    .. hint::
       Modify the default ``kwargs`` to see the 2D heat map cross-section in a location other than the beam center.
 
+   .. hint::
+      Modify the default ``kwargs`` to add a reference rectangle to the 2D heat map and position it anywhere on the graph.
+
+   .. attention::
+      ``rect`` must be a tuple of size four, otherwise the reference rectangle won't be ploted. 
+
 
 8. **Generate the 3D heat map plot**
    
@@ -313,17 +319,18 @@ How to use
          Default 3D heat map plot for the pdd lab_beam.xls
 
 
-   It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 35, add the following lines, and execute the code.
+   It is possible to customize the 2D heat map plot by specifying the ``kwargs`` values. Go back to line 38, add the following lines, and execute the code.
 
    .. code-block:: python
       :lineno-start: 37
-      :emphasize-lines: 2-7
+      :emphasize-lines: 2-8
 
       # Generate the 3D heat map plot
       kwargs = {
          'elev': 30,
          'azim': 45,
          'dist': 15,
+         'rect': (20, 25, 0, 0, 1950), 
          'fmt': '.png'
       }
       beamprofiler.utils.plot.heat_map_3d(path, fileName, myBeam, **kwargs)
@@ -335,10 +342,16 @@ How to use
 
          Customized 3D heat map plot for the pdd lab_beam.xls
 
-   See the difference? The elevation angle was set to ``30 deg``, the azimuthal angle was set to ``45 deg``, and the distance was set to ``15``. The image file format was not changed.
+   See the difference? The elevation angle was set to ``30 deg``, the azimuthal angle was set to ``45 deg``, the distance was set to ``15``, and a reference rectangle of size ``20×25 mm²`` was added at ``z=1950`` with a zero offset relative to the center of the beam. The image file format was not changed.
 
    .. hint::
       Modify the default ``kwargs`` to see the 3D heat map from different angles.
+
+   .. hint::
+      Modify the default ``kwargs`` to add a reference rectangle to the 3D heat map and position it anywhere on the graph.
+
+   .. attention::
+      ``rect`` must be a tuple of size five, otherwise the reference rectangle won't be ploted. 
 
 
 9. **Generate the normalized energy curve plot**
@@ -346,7 +359,7 @@ How to use
    To generate the normalized energy curve plot add the following lines to ``example.py`` and execute the code. The normalized energy curve plot is saved when the function ``beamprofiler.utils.plot.norm_energy_curve()`` is called.
 
    .. code-block:: python
-      :lineno-start: 46
+      :lineno-start: 47
 
       # Generate the normalized energy curve plot
       beamprofiler.utils.plot.norm_energy_curve(path, fileName, myBeam)
@@ -364,11 +377,11 @@ How to use
 
          Default normalized energy curve plot for the pdd lab_beam.xls
 
-   It is possible to customize the normalized energy curve plot by specifying the ``kwargs`` values. Go back to line 42, add the following lines, and execute the code.
+   It is possible to customize the normalized energy curve plot by specifying the ``kwargs`` values. Go back to line 48, add the following lines, and execute the code.
 
    .. code-block:: python
-      :lineno-start: 46
-      :emphasize-lines: 2-3
+      :lineno-start: 47
+      :emphasize-lines: 2-4
 
       # Generate the 3D heat map plot
       kwargs = {
@@ -386,7 +399,7 @@ How to use
     To generate the beam analysis report file add the following lines to ``example.py`` and execute the code. The report is saved when the function ``beamprofiler.utils.report.write()``
 
     .. code-block:: python
-      :lineno-start: 52
+      :lineno-start: 53
 
       # Generate the normalized energy curve plot
       beamprofiler.utils.report.write(path, fileName, myBeam)
@@ -455,6 +468,7 @@ How to use
           'elev': 30,
           'azim': 45,
           'dist': 15,
+          'rect': (20, 25, 0, 0, 1950),
           'fmt': '.png'
       }
       beamprofiler.utils.plot.heat_map_3d(path, fileName, myBeam, **kwargs)
