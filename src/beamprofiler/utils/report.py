@@ -3,10 +3,8 @@
 This module handles the report generation of the beam analysis.
 """
 
-# =============================================================================
-# Imports
-# =============================================================================
 import os
+
 import xlsxwriter
 
 

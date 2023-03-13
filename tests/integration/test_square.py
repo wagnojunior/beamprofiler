@@ -6,6 +6,7 @@ Test file for a square beam.
 # Imports
 # =============================================================================
 import unittest
+
 import pkg_resources
 
 from beamprofiler import beam

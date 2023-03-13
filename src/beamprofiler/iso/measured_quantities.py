@@ -4,9 +4,6 @@ This module handles the extraction of the measured quantities in accordance
 with the **ISO 13694** and **ISO 11145**.
 """
 
-# =============================================================================
-# Imports
-# =============================================================================
 import numpy as np
 
 

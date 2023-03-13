@@ -4,15 +4,12 @@ This module defines the class `Beam`, which holds all the relevant data related
 to the beam analysis.
 """
 
-# =============================================================================
-# Imports
-# =============================================================================
 import os
 
-from beamprofiler.utils import data_processing as dp
-from beamprofiler.iso import measured_quantities as mq
 from beamprofiler.iso import characterizing_parameters as iso_cp
+from beamprofiler.iso import measured_quantities as mq
 from beamprofiler.niso import characterizing_parameters as niso_cp
+from beamprofiler.utils import data_processing as dp
 
 
 class Beam:

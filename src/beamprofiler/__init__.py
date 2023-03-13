@@ -7,15 +7,10 @@ definitions commonly used in the industry.
 
 __author__ = """Wagno Alves Braganca Junior"""
 __email__ = 'wagnojunior@gmail.com'
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 
-# =============================================================================
-# Imports
-# =============================================================================
+from beamprofiler import iso, niso, utils
 from beamprofiler.beam import Beam
-from beamprofiler import iso
-from beamprofiler import niso
-from beamprofiler import utils
 
 __all__ = ['Beam', 'iso', 'niso', 'utils']

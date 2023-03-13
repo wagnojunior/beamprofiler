@@ -4,9 +4,6 @@ This module handles the calculation of the characterizing parameters in
 accordance with non-ISO definitions.
 """
 
-# =============================================================================
-# Imports
-# =============================================================================
 import numpy as np
 from scipy import stats
 

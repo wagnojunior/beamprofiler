@@ -3,19 +3,16 @@
 This module handles the generation of the auxiliary plots.
 """
 
-# =============================================================================
-# Imports
-# =============================================================================
 import os
-import numpy as np
 
-import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.patches as mpatches
-from matplotlib.ticker import (MultipleLocator, FormatStrFormatter)
-
+import matplotlib.pyplot as plt
+import mpl_toolkits.mplot3d.art3d as art3d
+import numpy as np
+from matplotlib.ticker import FormatStrFormatter, MultipleLocator
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
+from mpl_toolkits.axes_grid1.inset_locator import mark_inset, zoomed_inset_axes
 
 from beamprofiler.utils import data_processing as dp
 
@@ -188,8 +185,14 @@ def heat_map_2d(path, fileName, beam, **kwargs):
         y-coordinate of the cross-section graph of the power density
         distribution. The default is the calculated beam center about the
         y-axis.
+    rect : tuple
+        size and position of the reference rectangle. The first two elements of
+        the tuple define the width and length of the reference rectangle,
+        repectively. The third and fourth elements of the tuple define the
+        offset of the reference rectangle relative to the center of the beam.
+        (width, length, x_offset, y_offset). Default is (0, 0, 0, 0).
     fmt : str
-        image file format.
+        image file format. The default is `.png`.
 
     Returns
     -------
@@ -201,8 +204,21 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     z_lim = kwargs.pop('z_lim', -1)
     cross_x = kwargs.pop('cross_x', beam.centerX * beam.xResolution)
     cross_y = kwargs.pop('cross_y', beam.centerY * beam.yResolution)
+    rect = kwargs.pop('rect', (0, 0, 0, 0))
     fmt = kwargs.pop('fmt', '.png')
-
+    
+    # Check if the length of rect matches the required value
+    req_len = 4
+    if len(rect) != req_len:
+        print("The kwarg 'rect' is missing %d argument(s), therefore the "
+              "referece rectangle will not be ploted. Please add %d more "
+              "argument(s) and try again." % (
+                  (req_len-len(rect)),
+                  (req_len-len(rect))
+                  )
+              )
+        rect=(0, 0, 0, 0)
+    
     # Get the figure and axes objects
     fig, main_ax = general_plot()
 
@@ -237,15 +253,40 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     main_ax.axhline(cross_y, color='k', linestyle="-", lw=0.8)
     main_ax.set_xlabel('x-axis (mm)')
     main_ax.set_ylabel('y-axis (mm)')
+    
+    # If `rect` was not defined via the kwargs, do not do extra drawings
+    if rect != (0, 0, 0, 0):
+        # Add a black rectangle to the 2D heat map. The rectangle is defined by
+        # an ancor point (botton-left corner) and a width and length. The ancor
+        # point is set so the center of the rectangles matches the center of
+        # the laser beam, however it can be moved about the x-axis by setting
+        # `rect[2] != 0` and about the y-axis by setting `rect[3] != 0`
+        ancor_x = (beam.centerX * beam.xResolution - rect[0]/2) + rect[2]
+        ancor_y = (beam.centerY * beam.yResolution - rect[1]/2) + rect[3]
+        
+        p = mpatches.Rectangle(
+            (ancor_x, ancor_y),
+            rect[0],
+            rect[1],
+            linewidth=0.25,
+            edgecolor='k',
+            facecolor='none')
+        main_ax.add_patch(p)
+        
+        # Add a black line to the top ax
+        top_ax.axvline(ancor_x, color='k', linestyle='-', lw=0.25)
+        top_ax.axvline(ancor_x+rect[0], color='k', linestyle='-', lw=0.25)
+        
+        # Add a black line to the right ax
+        right_ax.axhline(ancor_y, color='k', linestyle='-', lw=0.25)
+        right_ax.axhline(ancor_y+rect[1], color='k', linestyle='-', lw=0.25)
 
     # Create and configure the right sub ax
     y = np.mgrid[0:dp.get_yWindow(beam.raw_header):beam.yResolution]
     slice_y = 0
     try:
         # Data along the y-axis at the x-position defined by cross_x
-        slice_y = (
-            z[:, int(np.around(cross_x/beam.xResolution))]
-        )
+        slice_y = z[:, int(np.around(cross_x/beam.xResolution))]
     except IndexError:
         print("Slice position is outside of the range. Please, check the "
               "slice position.")
@@ -256,9 +297,7 @@ def heat_map_2d(path, fileName, beam, **kwargs):
     slice_x = 0
     try:
         # Data along the x-axis at the y-position defined by cross_y
-        slice_x = (
-            z[int(np.around(cross_y/beam.yResolution)), :]
-        )
+        slice_x = z[int(np.around(cross_y/beam.yResolution)), :]     
     except IndexError:
         print("Slice position is outside of the range. Please, check the "
               "slice position.")
@@ -287,9 +326,18 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     elev : float
         elevation viewing angle. The default is 50.
     azim : float
-        azimuthal viewing angle. The default is 135.
+        azimuthal viewing angle. The default is 315.
     dist : float
         distance from the plot. The default is 11.
+    rect : tuple
+        size and position of the reference rectangle. The first two elements of
+        the tuple define the width and length of the reference rectangle,
+        repectively. The third and fourth elements of the tuple define the
+        offset of the reference rectangle relative to the center of the beam.
+        The fifth element of the tuple defines the offset of the reference
+        rectangle relative to the z-axis.
+        (width, length, x_offset, y_offset, z_offset).
+        Default is (0, 0, 0, 0, 0).
     fmt : str
         image file format.
 
@@ -301,9 +349,22 @@ def heat_map_3d(path, fileName, beam, **kwargs):
 
     # Check if any default value has been redefined in kwargs
     elev = kwargs.pop('elev', 50)
-    azim = kwargs.pop('azim', 135)
+    azim = kwargs.pop('azim', 315)
     dist = kwargs.pop('dist', 11)
+    rect = kwargs.pop('rect', (0, 0, 0, 0, 0))
     fmt = kwargs.pop('fmt', '.png')
+    
+    # Check if the length of rect matches the required value
+    req_len = 5
+    if len(rect) != req_len:
+        print("The kwarg 'rect' is missing %d argument(s), therefore the "
+              "referece rectangle will not be ploted. Please add %d more "
+              "argument(s) and try again." % (
+                  (req_len-len(rect)),
+                  (req_len-len(rect))
+                  )
+              )
+        rect=(0, 0, 0, 0, 0)
 
     fig, ax = general_plot(proj='3d')
 
@@ -317,6 +378,27 @@ def heat_map_3d(path, fileName, beam, **kwargs):
     x_3d, y_3d = np.meshgrid(x, y)
     ax.plot_surface(x_3d, y_3d, beam.raw_data, cmap=cm.gist_rainbow_r,
                     rstride=2, cstride=2, linewidth=2, antialiased=False)
+    
+    
+    # If `rect` was not defined via the kwargs, do not do extra drawings
+    if rect != (0, 0, 0, 0, 0):
+        # Add a black rectangle to the 3D heat map. The rectangle is defined by
+        # an ancor point (botton-left corner) and a width and length. The ancor
+        # point is set so the center of the rectangles matches the center of
+        # the laser beam, however it can be moved about the x-axis by setting
+        # `rect[2] != 0` and about the y-axis by setting `rect[3] != 0`
+        ancor_x = (beam.centerX * beam.xResolution - rect[0]/2) + rect[2]
+        ancor_y = (beam.centerY * beam.yResolution - rect[1]/2) + rect[3]
+        
+        p = mpatches.Rectangle(
+            (ancor_x, ancor_y),
+            rect[0],
+            rect[1],
+            linewidth=0.25,
+            edgecolor='k',
+            facecolor='none')
+        ax.add_patch(p)
+        art3d.pathpatch_2d_to_3d(p, z=rect[4], zdir="z")
 
     # Set axis labels
     ax.set_xlabel("x-axis (mm)", labelpad=5)

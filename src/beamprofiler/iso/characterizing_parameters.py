@@ -4,10 +4,8 @@ This module handles the calculation of the characterizing parameters in
 accordance with the **ISO 13694** and **ISO 11145**.
 """
 
-# =============================================================================
-# Imports
-# =============================================================================
 import math
+
 import numpy as np
 
 from beamprofiler.iso import measured_quantities as mq
