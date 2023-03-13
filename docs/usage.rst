@@ -158,6 +158,7 @@ How to use
       beamprofiler.utils.plot.histogram(path, fileName, myBeam)
 
    .. autofunction:: beamprofiler.utils.plot.histogram
+      :noindex:
 
    .. important::
          If the ``kwargs`` are omitted the histogram is ploted using the default
