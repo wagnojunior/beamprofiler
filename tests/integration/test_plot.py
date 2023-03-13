@@ -2,12 +2,13 @@
 """
 Test file for a real top-hat beam.
 """
+import os
 # =============================================================================
 # Imports
 # =============================================================================
 import unittest
+
 import pkg_resources
-import os
 
 import beamprofiler
 

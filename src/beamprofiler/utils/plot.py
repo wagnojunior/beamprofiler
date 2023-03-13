@@ -3,20 +3,16 @@
 This module handles the generation of the auxiliary plots.
 """
 
-# =============================================================================
-# Imports
-# =============================================================================
 import os
-import numpy as np
 
-import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.patches as mpatches
-from matplotlib.ticker import (MultipleLocator, FormatStrFormatter)
+import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d.art3d as art3d
-
+import numpy as np
+from matplotlib.ticker import FormatStrFormatter, MultipleLocator
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
+from mpl_toolkits.axes_grid1.inset_locator import mark_inset, zoomed_inset_axes
 
 from beamprofiler.utils import data_processing as dp
 

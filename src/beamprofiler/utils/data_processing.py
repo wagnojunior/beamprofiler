@@ -3,15 +3,12 @@
 This module handles the data processing prior to the beam analysis.
 """
 
-# =============================================================================
-# Imports
-# =============================================================================
 import os
-import pandas as pd
-import numpy as np
 
-from sklearn import mixture
+import numpy as np
+import pandas as pd
 from scipy import stats
+from sklearn import mixture
 
 
 def raw_data(fullPath):
