@@ -124,7 +124,6 @@ How to use
 
    .. autofunction:: beamprofiler.Beam.__init__
       :noindex:
-
    
    The variable ``myBeam`` is created and all the relevant data related to the beam analysis are saved in it, including the following characterizing
    parameters:
